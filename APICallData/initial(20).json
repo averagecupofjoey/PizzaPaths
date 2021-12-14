@@ -1,0 +1,883 @@
+{
+  "businesses": [
+    {
+      "id": "nyPEn4t4dJglcWxoQRp7vA",
+      "alias": "bakers-pizza-new-york-4",
+      "name": "Baker's Pizza",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/C-oarJ1ocldrTOZr5Z_5XA/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/bakers-pizza-new-york-4?adjust_creative=iGT8XeHTfr6cW1JZxqC-TA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=iGT8XeHTfr6cW1JZxqC-TA",
+      "review_count": 114,
+      "categories": [
+        {
+          "alias": "pizza",
+          "title": "Pizza"
+        }
+      ],
+      "rating": 4.5,
+      "coordinates": {
+        "latitude": 40.76546,
+        "longitude": -73.991
+      },
+      "transactions": [
+        "pickup",
+        "delivery"
+      ],
+      "price": "$",
+      "location": {
+        "address1": "754 10th Ave",
+        "address2": "",
+        "address3": null,
+        "city": "New York",
+        "zip_code": "10019",
+        "country": "US",
+        "state": "NY",
+        "display_address": [
+          "754 10th Ave",
+          "New York, NY 10019"
+        ]
+      },
+      "phone": "+19172620722",
+      "display_phone": "(917) 262-0722",
+      "distance": 259.1430821248716
+    },
+    {
+      "id": "KEEXuHCYhsQJ-zpJhu98bA",
+      "alias": "joes-pizza-new-york-148",
+      "name": "Joe's Pizza",
+      "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/gESrw6RXqd12mmdUzNoV5A/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/joes-pizza-new-york-148?adjust_creative=iGT8XeHTfr6cW1JZxqC-TA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=iGT8XeHTfr6cW1JZxqC-TA",
+      "review_count": 1351,
+      "categories": [
+        {
+          "alias": "pizza",
+          "title": "Pizza"
+        }
+      ],
+      "rating": 4.0,
+      "coordinates": {
+        "latitude": 40.7547,
+        "longitude": -73.98696
+      },
+      "transactions": [
+        "pickup",
+        "delivery"
+      ],
+      "price": "$",
+      "location": {
+        "address1": "1435 Broadway",
+        "address2": "",
+        "address3": null,
+        "city": "New York",
+        "zip_code": "10018",
+        "country": "US",
+        "state": "NY",
+        "display_address": [
+          "1435 Broadway",
+          "New York, NY 10018"
+        ]
+      },
+      "phone": "+16465594878",
+      "display_phone": "(646) 559-4878",
+      "distance": 1370.8232129018365
+    },
+    {
+      "id": "GgdR6L49eKH5drPaOYOOPQ",
+      "alias": "pops-pizzas-new-york",
+      "name": "Pop's Pizzas",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/EmCIFyqmAh_RpFOoqFNkSg/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/pops-pizzas-new-york?adjust_creative=iGT8XeHTfr6cW1JZxqC-TA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=iGT8XeHTfr6cW1JZxqC-TA",
+      "review_count": 88,
+      "categories": [
+        {
+          "alias": "pizza",
+          "title": "Pizza"
+        }
+      ],
+      "rating": 4.5,
+      "coordinates": {
+        "latitude": 40.767086,
+        "longitude": -73.983033
+      },
+      "transactions": [
+        "pickup",
+        "delivery"
+      ],
+      "location": {
+        "address1": "301 West 57th St",
+        "address2": null,
+        "address3": "",
+        "city": "New York",
+        "zip_code": "10019",
+        "country": "US",
+        "state": "NY",
+        "display_address": [
+          "301 West 57th St",
+          "New York, NY 10019"
+        ]
+      },
+      "phone": "+12127848863",
+      "display_phone": "(212) 784-8863",
+      "distance": 923.1267823660329
+    },
+    {
+      "id": "DJSLGbSqCJ1W8ma3LFlMuw",
+      "alias": "patzeria-perfect-pizza-new-york",
+      "name": "Patzeria Perfect Pizza",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/w62on7rHWF6ZNTVy6M6RuQ/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/patzeria-perfect-pizza-new-york?adjust_creative=iGT8XeHTfr6cW1JZxqC-TA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=iGT8XeHTfr6cW1JZxqC-TA",
+      "review_count": 1666,
+      "categories": [
+        {
+          "alias": "pizza",
+          "title": "Pizza"
+        },
+        {
+          "alias": "italian",
+          "title": "Italian"
+        },
+        {
+          "alias": "pastashops",
+          "title": "Pasta Shops"
+        }
+      ],
+      "rating": 4.0,
+      "coordinates": {
+        "latitude": 40.759494511551836,
+        "longitude": -73.98673451962638
+      },
+      "transactions": [
+        "pickup",
+        "delivery"
+      ],
+      "price": "$",
+      "location": {
+        "address1": "231 W 46th St",
+        "address2": null,
+        "address3": "",
+        "city": "New York",
+        "zip_code": "10036",
+        "country": "US",
+        "state": "NY",
+        "display_address": [
+          "231 W 46th St",
+          "New York, NY 10036"
+        ]
+      },
+      "phone": "+12125757646",
+      "display_phone": "(212) 575-7646",
+      "distance": 931.0364650504453
+    },
+    {
+      "id": "MwcRbM6lS6_8N67LmyBELA",
+      "alias": "99-cent-fresh-pizza-new-york-5",
+      "name": "99 Cent Fresh Pizza",
+      "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/yy7ZIhBQiVIsoBINay-MIg/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/99-cent-fresh-pizza-new-york-5?adjust_creative=iGT8XeHTfr6cW1JZxqC-TA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=iGT8XeHTfr6cW1JZxqC-TA",
+      "review_count": 573,
+      "categories": [
+        {
+          "alias": "pizza",
+          "title": "Pizza"
+        }
+      ],
+      "rating": 4.0,
+      "coordinates": {
+        "latitude": 40.76458,
+        "longitude": -73.98247
+      },
+      "transactions": [
+        "pickup",
+        "delivery"
+      ],
+      "price": "$",
+      "location": {
+        "address1": "1723 Broadway",
+        "address2": "",
+        "address3": "",
+        "city": "New York",
+        "zip_code": "10019",
+        "country": "US",
+        "state": "NY",
+        "display_address": [
+          "1723 Broadway",
+          "New York, NY 10019"
+        ]
+      },
+      "phone": "+12122452155",
+      "display_phone": "(212) 245-2155",
+      "distance": 971.3268605065022
+    },
+    {
+      "id": "-9NO2IDCJMyNGZMAQ1-VQw",
+      "alias": "ny-pizza-suprema-new-york",
+      "name": "NY Pizza Suprema",
+      "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/EqbDXneMuQP6pw6GemVdQA/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/ny-pizza-suprema-new-york?adjust_creative=iGT8XeHTfr6cW1JZxqC-TA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=iGT8XeHTfr6cW1JZxqC-TA",
+      "review_count": 2147,
+      "categories": [
+        {
+          "alias": "pizza",
+          "title": "Pizza"
+        }
+      ],
+      "rating": 4.0,
+      "coordinates": {
+        "latitude": 40.7502059936523,
+        "longitude": -73.9953231811523
+      },
+      "transactions": [
+        "pickup",
+        "delivery"
+      ],
+      "price": "$",
+      "location": {
+        "address1": "413 8th Ave",
+        "address2": "",
+        "address3": "",
+        "city": "New York",
+        "zip_code": "10001",
+        "country": "US",
+        "state": "NY",
+        "display_address": [
+          "413 8th Ave",
+          "New York, NY 10001"
+        ]
+      },
+      "phone": "+12125948939",
+      "display_phone": "(212) 594-8939",
+      "distance": 1742.0203182961734
+    },
+    {
+      "id": "vwsKHxKI49TIM8Ao_RTNgg",
+      "alias": "carnegie-pizza-new-york",
+      "name": "Carnegie Pizza",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/vKA4tlvDGi7OMNYmlIJKnA/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/carnegie-pizza-new-york?adjust_creative=iGT8XeHTfr6cW1JZxqC-TA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=iGT8XeHTfr6cW1JZxqC-TA",
+      "review_count": 66,
+      "categories": [
+        {
+          "alias": "pizza",
+          "title": "Pizza"
+        }
+      ],
+      "rating": 4.5,
+      "coordinates": {
+        "latitude": 40.75534,
+        "longitude": -73.98792
+      },
+      "transactions": [
+        "pickup",
+        "delivery"
+      ],
+      "location": {
+        "address1": "200 W 41st St",
+        "address2": "",
+        "address3": null,
+        "city": "New York",
+        "zip_code": "10036",
+        "country": "US",
+        "state": "NY",
+        "display_address": [
+          "200 W 41st St",
+          "New York, NY 10036"
+        ]
+      },
+      "phone": "+12127774141",
+      "display_phone": "(212) 777-4141",
+      "distance": 1272.9665116464623
+    },
+    {
+      "id": "1To57srDy-cVko5QWGcogA",
+      "alias": "sacco-pizza-new-york",
+      "name": "Sacco Pizza",
+      "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/HsNvqNfdNHX5hpxdeWpfjA/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/sacco-pizza-new-york?adjust_creative=iGT8XeHTfr6cW1JZxqC-TA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=iGT8XeHTfr6cW1JZxqC-TA",
+      "review_count": 418,
+      "categories": [
+        {
+          "alias": "pizza",
+          "title": "Pizza"
+        }
+      ],
+      "rating": 4.0,
+      "coordinates": {
+        "latitude": 40.7662658691406,
+        "longitude": -73.9872665405273
+      },
+      "transactions": [
+        "pickup",
+        "delivery"
+      ],
+      "price": "$",
+      "location": {
+        "address1": "819 9th Ave",
+        "address2": "",
+        "address3": "",
+        "city": "New York",
+        "zip_code": "10019",
+        "country": "US",
+        "state": "NY",
+        "display_address": [
+          "819 9th Ave",
+          "New York, NY 10019"
+        ]
+      },
+      "phone": "+12125827765",
+      "display_phone": "(212) 582-7765",
+      "distance": 564.2306649165632
+    },
+    {
+      "id": "EMKsuz1fQIGqmWPp3ZEDmA",
+      "alias": "vitos-slices-and-ices-new-york-2",
+      "name": "Vito's Slices and Ices",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/v_nn0dlAdvKFxWO8kh0mwg/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/vitos-slices-and-ices-new-york-2?adjust_creative=iGT8XeHTfr6cW1JZxqC-TA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=iGT8XeHTfr6cW1JZxqC-TA",
+      "review_count": 148,
+      "categories": [
+        {
+          "alias": "pizza",
+          "title": "Pizza"
+        },
+        {
+          "alias": "shavedice",
+          "title": "Shaved Ice"
+        },
+        {
+          "alias": "italian",
+          "title": "Italian"
+        }
+      ],
+      "rating": 4.5,
+      "coordinates": {
+        "latitude": 40.7545,
+        "longitude": -73.99528
+      },
+      "transactions": [
+        "pickup",
+        "delivery"
+      ],
+      "price": "$",
+      "location": {
+        "address1": "464 9th Ave",
+        "address2": null,
+        "address3": "",
+        "city": "New York",
+        "zip_code": "10018",
+        "country": "US",
+        "state": "NY",
+        "display_address": [
+          "464 9th Ave",
+          "New York, NY 10018"
+        ]
+      },
+      "phone": "+12122731186",
+      "display_phone": "(212) 273-1186",
+      "distance": 1268.5227053638528
+    },
+    {
+      "id": "FKzpfWUpyupl4q74Jt8fTA",
+      "alias": "don-antonio-new-york-5",
+      "name": "Don Antonio",
+      "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/Kwv16TeExWDWWLLbCNq7Cw/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/don-antonio-new-york-5?adjust_creative=iGT8XeHTfr6cW1JZxqC-TA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=iGT8XeHTfr6cW1JZxqC-TA",
+      "review_count": 1485,
+      "categories": [
+        {
+          "alias": "pizza",
+          "title": "Pizza"
+        },
+        {
+          "alias": "italian",
+          "title": "Italian"
+        },
+        {
+          "alias": "cocktailbars",
+          "title": "Cocktail Bars"
+        }
+      ],
+      "rating": 4.0,
+      "coordinates": {
+        "latitude": 40.762711,
+        "longitude": -73.986708
+      },
+      "transactions": [
+        "pickup",
+        "delivery"
+      ],
+      "price": "$$",
+      "location": {
+        "address1": "309 W 50th St",
+        "address2": "",
+        "address3": "",
+        "city": "New York",
+        "zip_code": "10019",
+        "country": "US",
+        "state": "NY",
+        "display_address": [
+          "309 W 50th St",
+          "New York, NY 10019"
+        ]
+      },
+      "phone": "+16467191043",
+      "display_phone": "(646) 719-1043",
+      "distance": 702.1205431879921
+    },
+    {
+      "id": "oRdM7n-AfBPBGAlH4Q0Sag",
+      "alias": "my-pie-pizzeria-romana-new-york-2",
+      "name": "My Pie Pizzeria Romana",
+      "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/C0xEYVnbJNDnyMYv_VVZ9Q/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/my-pie-pizzeria-romana-new-york-2?adjust_creative=iGT8XeHTfr6cW1JZxqC-TA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=iGT8XeHTfr6cW1JZxqC-TA",
+      "review_count": 805,
+      "categories": [
+        {
+          "alias": "italian",
+          "title": "Italian"
+        },
+        {
+          "alias": "pizza",
+          "title": "Pizza"
+        }
+      ],
+      "rating": 4.5,
+      "coordinates": {
+        "latitude": 40.7608512,
+        "longitude": -73.9694809
+      },
+      "transactions": [
+        "pickup",
+        "delivery"
+      ],
+      "price": "$",
+      "location": {
+        "address1": "690 Lexington Ave",
+        "address2": "",
+        "address3": "",
+        "city": "New York",
+        "zip_code": "10022",
+        "country": "US",
+        "state": "NY",
+        "display_address": [
+          "690 Lexington Ave",
+          "New York, NY 10022"
+        ]
+      },
+      "phone": "+12123171850",
+      "display_phone": "(212) 317-1850",
+      "distance": 2134.188055977503
+    },
+    {
+      "id": "dAoDMvczet_r65mjBSQnJA",
+      "alias": "corner-slice-new-york",
+      "name": "Corner Slice",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/016f1hgd9KYJSgFjGIUHNQ/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/corner-slice-new-york?adjust_creative=iGT8XeHTfr6cW1JZxqC-TA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=iGT8XeHTfr6cW1JZxqC-TA",
+      "review_count": 130,
+      "categories": [
+        {
+          "alias": "pizza",
+          "title": "Pizza"
+        },
+        {
+          "alias": "sandwiches",
+          "title": "Sandwiches"
+        },
+        {
+          "alias": "italian",
+          "title": "Italian"
+        }
+      ],
+      "rating": 4.0,
+      "coordinates": {
+        "latitude": 40.7623377,
+        "longitude": -73.9967579
+      },
+      "transactions": [
+        "pickup",
+        "delivery"
+      ],
+      "price": "$",
+      "location": {
+        "address1": "600 11th Ave",
+        "address2": null,
+        "address3": "",
+        "city": "New York",
+        "zip_code": "10036",
+        "country": "US",
+        "state": "NY",
+        "display_address": [
+          "600 11th Ave",
+          "New York, NY 10036"
+        ]
+      },
+      "phone": "+12129569339",
+      "display_phone": "(212) 956-9339",
+      "distance": 455.26349665708227
+    },
+    {
+      "id": "tRIHhPKryUZ56SfIz6mLiA",
+      "alias": "angelos-coal-oven-pizzeria-new-york",
+      "name": "Angelo's Coal Oven Pizzeria",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/LX6yLXzik0UVep_1JGG3aw/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/angelos-coal-oven-pizzeria-new-york?adjust_creative=iGT8XeHTfr6cW1JZxqC-TA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=iGT8XeHTfr6cW1JZxqC-TA",
+      "review_count": 946,
+      "categories": [
+        {
+          "alias": "pizza",
+          "title": "Pizza"
+        },
+        {
+          "alias": "italian",
+          "title": "Italian"
+        }
+      ],
+      "rating": 4.0,
+      "coordinates": {
+        "latitude": 40.76492,
+        "longitude": -73.97794
+      },
+      "transactions": [
+        "pickup",
+        "delivery"
+      ],
+      "price": "$$",
+      "location": {
+        "address1": "117 W 57th St",
+        "address2": "",
+        "address3": "",
+        "city": "New York",
+        "zip_code": "10019",
+        "country": "US",
+        "state": "NY",
+        "display_address": [
+          "117 W 57th St",
+          "New York, NY 10019"
+        ]
+      },
+      "phone": "+12123334333",
+      "display_phone": "(212) 333-4333",
+      "distance": 1352.3612280697348
+    },
+    {
+      "id": "zj8Lq1T8KIC5zwFief15jg",
+      "alias": "prince-street-pizza-new-york-2",
+      "name": "Prince Street Pizza",
+      "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/ZAukOyv530w4KjOHC5YY1w/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/prince-street-pizza-new-york-2?adjust_creative=iGT8XeHTfr6cW1JZxqC-TA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=iGT8XeHTfr6cW1JZxqC-TA",
+      "review_count": 4092,
+      "categories": [
+        {
+          "alias": "pizza",
+          "title": "Pizza"
+        },
+        {
+          "alias": "italian",
+          "title": "Italian"
+        }
+      ],
+      "rating": 4.5,
+      "coordinates": {
+        "latitude": 40.72308755605564,
+        "longitude": -73.99453001177575
+      },
+      "transactions": [
+        "pickup",
+        "delivery"
+      ],
+      "price": "$",
+      "location": {
+        "address1": "27 Prince St",
+        "address2": null,
+        "address3": "",
+        "city": "New York",
+        "zip_code": "10012",
+        "country": "US",
+        "state": "NY",
+        "display_address": [
+          "27 Prince St",
+          "New York, NY 10012"
+        ]
+      },
+      "phone": "+12129664100",
+      "display_phone": "(212) 966-4100",
+      "distance": 4753.765843934149
+    },
+    {
+      "id": "H1YIowHp7SMbpVoOtSEIJg",
+      "alias": "2-bros-pizza-new-york-6",
+      "name": "2 Bros Pizza",
+      "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/A8lYdaYuz5QEweSAmG9zXg/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/2-bros-pizza-new-york-6?adjust_creative=iGT8XeHTfr6cW1JZxqC-TA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=iGT8XeHTfr6cW1JZxqC-TA",
+      "review_count": 414,
+      "categories": [
+        {
+          "alias": "pizza",
+          "title": "Pizza"
+        }
+      ],
+      "rating": 4.0,
+      "coordinates": {
+        "latitude": 40.75678,
+        "longitude": -73.98022
+      },
+      "transactions": [
+        "pickup",
+        "delivery"
+      ],
+      "price": "$",
+      "location": {
+        "address1": "31 W 46th St",
+        "address2": "",
+        "address3": "",
+        "city": "New York",
+        "zip_code": "10036",
+        "country": "US",
+        "state": "NY",
+        "display_address": [
+          "31 W 46th St",
+          "New York, NY 10036"
+        ]
+      },
+      "phone": "+12127044251",
+      "display_phone": "(212) 704-4251",
+      "distance": 1528.633941711727
+    },
+    {
+      "id": "rYvxje-p3e5sR4bJflz_pw",
+      "alias": "angelos-pizza-new-york",
+      "name": "Angelo's Pizza",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/DLEUNgRiRTb4dqB7EvI0kQ/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/angelos-pizza-new-york?adjust_creative=iGT8XeHTfr6cW1JZxqC-TA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=iGT8XeHTfr6cW1JZxqC-TA",
+      "review_count": 579,
+      "categories": [
+        {
+          "alias": "pizza",
+          "title": "Pizza"
+        },
+        {
+          "alias": "italian",
+          "title": "Italian"
+        }
+      ],
+      "rating": 3.5,
+      "coordinates": {
+        "latitude": 40.7638169909039,
+        "longitude": -73.9827420901337
+      },
+      "transactions": [
+        "pickup",
+        "delivery"
+      ],
+      "price": "$$",
+      "location": {
+        "address1": "1697 Broadway",
+        "address2": null,
+        "address3": "",
+        "city": "New York",
+        "zip_code": "10019",
+        "country": "US",
+        "state": "NY",
+        "display_address": [
+          "1697 Broadway",
+          "New York, NY 10019"
+        ]
+      },
+      "phone": "+12122458811",
+      "display_phone": "(212) 245-8811",
+      "distance": 970.3930535792334
+    },
+    {
+      "id": "xsQTIeq-WLkp4ParkTQpMQ",
+      "alias": "pizzarte-new-york",
+      "name": "PizzArte",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/aoQCNBXCrUL1y-w7F7qTGg/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/pizzarte-new-york?adjust_creative=iGT8XeHTfr6cW1JZxqC-TA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=iGT8XeHTfr6cW1JZxqC-TA",
+      "review_count": 1156,
+      "categories": [
+        {
+          "alias": "pizza",
+          "title": "Pizza"
+        },
+        {
+          "alias": "italian",
+          "title": "Italian"
+        },
+        {
+          "alias": "gluten_free",
+          "title": "Gluten-Free"
+        }
+      ],
+      "rating": 4.0,
+      "coordinates": {
+        "latitude": 40.7629335072372,
+        "longitude": -73.9776668697596
+      },
+      "transactions": [
+        "pickup",
+        "delivery"
+      ],
+      "price": "$$",
+      "location": {
+        "address1": "69 W 55th St",
+        "address2": "",
+        "address3": "",
+        "city": "New York",
+        "zip_code": "10019",
+        "country": "US",
+        "state": "NY",
+        "display_address": [
+          "69 W 55th St",
+          "New York, NY 10019"
+        ]
+      },
+      "phone": "+12122473936",
+      "display_phone": "(212) 247-3936",
+      "distance": 1408.9646921473488
+    },
+    {
+      "id": "JFw_Zj4CFTJbTPKJdPQ_Gw",
+      "alias": "freddie-and-peppers-new-york",
+      "name": "Freddie & Pepper's",
+      "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/qb7wqjRADNfwd2pAf5nbSg/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/freddie-and-peppers-new-york?adjust_creative=iGT8XeHTfr6cW1JZxqC-TA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=iGT8XeHTfr6cW1JZxqC-TA",
+      "review_count": 490,
+      "categories": [
+        {
+          "alias": "pizza",
+          "title": "Pizza"
+        }
+      ],
+      "rating": 4.0,
+      "coordinates": {
+        "latitude": 40.779999,
+        "longitude": -73.980301
+      },
+      "transactions": [
+        "delivery"
+      ],
+      "price": "$",
+      "location": {
+        "address1": "303 Amsterdam Ave",
+        "address2": "",
+        "address3": "",
+        "city": "New York",
+        "zip_code": "10023",
+        "country": "US",
+        "state": "NY",
+        "display_address": [
+          "303 Amsterdam Ave",
+          "New York, NY 10023"
+        ]
+      },
+      "phone": "+12127992378",
+      "display_phone": "(212) 799-2378",
+      "distance": 1949.6470658983997
+    },
+    {
+      "id": "EDYTUNp4bFO4dAwJMGuwCQ",
+      "alias": "pizza-collective-new-york",
+      "name": "Pizza Collective",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/qlzlpnND0bzfNjw1zGvK5Q/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/pizza-collective-new-york?adjust_creative=iGT8XeHTfr6cW1JZxqC-TA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=iGT8XeHTfr6cW1JZxqC-TA",
+      "review_count": 73,
+      "categories": [
+        {
+          "alias": "pizza",
+          "title": "Pizza"
+        }
+      ],
+      "rating": 4.5,
+      "coordinates": {
+        "latitude": 40.77795,
+        "longitude": -73.98155
+      },
+      "transactions": [
+        "pickup",
+        "delivery"
+      ],
+      "location": {
+        "address1": "2060 Broadway",
+        "address2": null,
+        "address3": null,
+        "city": "New York",
+        "zip_code": "10023",
+        "country": "US",
+        "state": "NY",
+        "display_address": [
+          "2060 Broadway",
+          "New York, NY 10023"
+        ]
+      },
+      "phone": "+16466930949",
+      "display_phone": "(646) 693-0949",
+      "distance": 1659.1245864796138
+    },
+    {
+      "id": "YuzOnNDfRKixNJiaVy5Baw",
+      "alias": "robertas-pizza-new-york-2",
+      "name": "Roberta's Pizza",
+      "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/DfRh3ueUr2FONIMGoitPMQ/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/robertas-pizza-new-york-2?adjust_creative=iGT8XeHTfr6cW1JZxqC-TA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=iGT8XeHTfr6cW1JZxqC-TA",
+      "review_count": 233,
+      "categories": [
+        {
+          "alias": "pizza",
+          "title": "Pizza"
+        }
+      ],
+      "rating": 4.0,
+      "coordinates": {
+        "latitude": 40.754393,
+        "longitude": -73.976103
+      },
+      "transactions": [
+        "pickup",
+        "delivery"
+      ],
+      "price": "$$",
+      "location": {
+        "address1": "230 Park Ave",
+        "address2": null,
+        "address3": "",
+        "city": "New York",
+        "zip_code": "10169",
+        "country": "US",
+        "state": "NY",
+        "display_address": [
+          "230 Park Ave",
+          "New York, NY 10169"
+        ]
+      },
+      "phone": "+16467470820",
+      "display_phone": "(646) 747-0820",
+      "distance": 1971.020738521306
+    }
+  ],
+  "total": 240,
+  "region": {
+    "center": {
+      "longitude": -73.9939515,
+      "latitude": 40.765837
+    }
+  }
+}
