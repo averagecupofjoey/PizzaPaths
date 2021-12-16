@@ -2282,3 +2282,6 @@ findPaths(data);
 //     }
 //   }
 // }
+
+// search
+// https://api.yelp.com/v3/businesses/search?term=pizza+slice&latitude=40.765837&longitude=-73.9939515

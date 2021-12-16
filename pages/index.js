@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import ArticleList from '../components/ArticleList';
+import Search from '../components/Search';
+import styles from '../styles/Layout.module.css';
 
 export default function Home({ articles }) {
   return (
@@ -8,6 +10,10 @@ export default function Home({ articles }) {
         <title>PizzaPaths</title>
         <meta name='keywords' content='pizza, pizza tours, pizza slice'></meta>
       </Head>
+      {/* <div className={styles.container}>
+        <Search />
+      </div> */}
+
       <ArticleList articles={articles} />
     </div>
   );
