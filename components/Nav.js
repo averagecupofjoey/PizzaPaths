@@ -11,9 +11,9 @@ const Nav = () => {
         <li>
           <Link href='/about'>About</Link>
         </li>
-        <li>
+        {/* <li>
           <Link href='/trialData'>Test</Link>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );
