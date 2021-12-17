@@ -13,8 +13,7 @@ export default function Home({ articles }) {
       {/* <div className={styles.container}>
         <Search />
       </div> */}
-
-      <ArticleList articles={articles} />
+      {/* <Search /> */}
     </div>
   );
   //the ; used to be here but taking it out didn't fix issue

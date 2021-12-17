@@ -25,7 +25,7 @@ export function findPaths(data) {
       oneSlice.push(data.businesses[i]);
       // console.log('*****', possiblePath);
       // console.log('&&&&&', objectOfPaths[1]);
-      objectOfPaths[1].push(oneSlice);
+      objectOfPaths[1].push([oneSlice, remainingPath]);
       comparePoint = [
         data.businesses[i].coordinates.latitude,
         data.businesses[i].coordinates.longitude,
@@ -42,7 +42,7 @@ export function findPaths(data) {
             );
           if (remainingPath >= 0) {
             let twoSlice = [...oneSlice, data.businesses[j]];
-            objectOfPaths[2].push(twoSlice);
+            objectOfPaths[2].push([twoSlice, remainingPath]);
             comparePoint = [
               data.businesses[j].coordinates.latitude,
               data.businesses[j].coordinates.longitude,
@@ -60,7 +60,7 @@ export function findPaths(data) {
                   );
                 if (remainingPath >= 0) {
                   let threeSlice = [...twoSlice, data.businesses[k]];
-                  objectOfPaths[3].push(threeSlice);
+                  objectOfPaths[3].push([threeSlice, remainingPath]);
                   comparePoint = [
                     data.businesses[k].coordinates.latitude,
                     data.businesses[k].coordinates.longitude,
@@ -82,7 +82,7 @@ export function findPaths(data) {
                         );
                       if (remainingPath > 0) {
                         let fourSlice = [...threeSlice, data.businesses[l]];
-                        objectOfPaths[4].push(fourSlice);
+                        objectOfPaths[4].push([fourSlice, remainingPath]);
                       }
                     }
                   }

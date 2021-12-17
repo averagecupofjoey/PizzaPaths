@@ -5,7 +5,8 @@ import axios from 'axios';
 import { useState } from 'react';
 
 const Search = () => {
-  // const [count, setCount] = useState(0);
+  const [pathOptions, setOptions] = useState('');
+  // const [sliceOptions, setSlices] = useState('');
   let userLatitude;
   let userLongitude;
   const searchPaths = async (event) => {
@@ -15,7 +16,7 @@ const Search = () => {
       userLatitude !== undefined &&
       userLongitude !== undefined &&
       slices.value !== '' &&
-      distance.value !== ''
+      pathDistance.value !== ''
     ) {
       console.log('Passing if statement');
       let response = await axios.get(
@@ -24,7 +25,11 @@ const Search = () => {
 
       let paths = response.data;
       let possiblePaths = findPaths(paths);
-      return <PizzaPath pizzaData={possiblePaths} numSlices={slices.value} />;
+      console.log('***** SLICES ON SEARCH.JS', slices.value);
+      setOptions(possiblePaths);
+      // setSlices(slices.value);
+
+      // return <PizzaPath pizzaData={possiblePaths} numSlices={slices.value} />;
     }
 
     // console.log(
@@ -77,6 +82,9 @@ const Search = () => {
         <br />
         <button type='submit'>Find my path!</button>
       </form>
+      {pathOptions && (
+        <PizzaPath pizzaData={pathOptions} numSlices={slices.value} />
+      )}
     </div>
   );
 };
