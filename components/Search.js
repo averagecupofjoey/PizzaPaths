@@ -23,8 +23,9 @@ const Search = () => {
         `/api/fetchPizza?latitude=${userLatitude}&longitude=${userLongitude}&pathDistance=${pathDistance.value}`
       );
 
+      let beginCoords = [userLatitude, userLongitude];
       let paths = response.data;
-      let possiblePaths = findPaths(paths);
+      let possiblePaths = findPaths(paths, pathDistance.value, beginCoords);
       console.log('***** SLICES ON SEARCH.JS', slices.value);
       setOptions(possiblePaths);
       // setSlices(slices.value);
@@ -78,6 +79,7 @@ const Search = () => {
           <option value='400'>5 blocks</option>
           <option value='800'>10 blocks</option>
           <option value='1609'>20 blocks/1 mile</option>
+          <option value='16090'>200 blocks/10 miles</option>
         </select>
         <br />
         <button type='submit'>Find my path!</button>
