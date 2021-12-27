@@ -36,8 +36,8 @@ export function findPaths(data, pathLength, beginning) {
           walkingDistance = distance(
             comparePoint[0],
             comparePoint[1],
-            data.businesses[i].coordinates.latitude,
-            data.businesses[i].coordinates.longitude
+            data.businesses[j].coordinates.latitude,
+            data.businesses[j].coordinates.longitude
           );
           remainingPath = remainingPath - walkingDistance;
           if (remainingPath >= 0) {
@@ -55,8 +55,8 @@ export function findPaths(data, pathLength, beginning) {
                 walkingDistance = distance(
                   comparePoint[0],
                   comparePoint[1],
-                  data.businesses[i].coordinates.latitude,
-                  data.businesses[i].coordinates.longitude
+                  data.businesses[k].coordinates.latitude,
+                  data.businesses[k].coordinates.longitude
                 );
                 remainingPath = remainingPath - walkingDistance;
                 if (remainingPath >= 0) {
@@ -80,8 +80,8 @@ export function findPaths(data, pathLength, beginning) {
                       walkingDistance = distance(
                         comparePoint[0],
                         comparePoint[1],
-                        data.businesses[i].coordinates.latitude,
-                        data.businesses[i].coordinates.longitude
+                        data.businesses[l].coordinates.latitude,
+                        data.businesses[l].coordinates.longitude
                       );
                       remainingPath = remainingPath - walkingDistance;
                       if (remainingPath > 0) {

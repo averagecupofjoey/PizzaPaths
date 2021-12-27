@@ -80,6 +80,7 @@ const Search = () => {
           <option value='800'>10 blocks</option>
           <option value='1609'>20 blocks/1 mile</option>
           <option value='16090'>200 blocks/10 miles</option>
+          <option value='32180'>400 blocks/20 miles</option>
         </select>
         <br />
         <button type='submit'>Find my path!</button>
