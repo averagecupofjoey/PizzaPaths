@@ -9,15 +9,15 @@ const PizzaPath = ({ pizzaData, numSlices }) => {
   console.log('In pizza path');
   console.log(slices);
   console.log('The initial pizza data', pizzaData);
-  console.log('Attempting to map data', pizzaData[Number(slices)][0]);
+  console.log('Attempting to map data', pizzaData[Number(slices)][routeNumber]);
   return (
     <div className={articleStyles.grid}>
-      {pizzaData[Number(slices)][routeNumber][0].map((pizzaArray) => (
+      {pizzaData[Number(slices)][routeNumber].map((pizzaArray) => (
         // <h3>{`Walk $(slices)`}</h3>
         <PizzaJoint
           pizzaJoint={pizzaArray}
-          pizzaDistance={pizzaData[Number(slices)][routeNumber][1]}
-          key={pizzaArray[0].id}
+          // pizzaDistance={pizzaData[Number(slices)][routeNumber][1]}
+          key={pizzaArray.id}
           // travelDistance={pizzaArray[1]}
         />
       ))}

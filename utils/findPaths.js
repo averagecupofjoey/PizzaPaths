@@ -19,13 +19,15 @@ export function findPaths(data, pathLength, beginning) {
       data.businesses[i].coordinates.longitude
     );
     remainingPath = remainingPath - walkingDistance;
+    data.businesses[i].travelDistance = walkingDistance;
 
     if (remainingPath >= 0) {
       oneSlice.push(data.businesses[i]);
       oneSliceDistance.push(walkingDistance);
       // console.log('*****', possiblePath);
       // console.log('&&&&&', objectOfPaths[1]);
-      objectOfPaths[1].push([oneSlice, oneSliceDistance]);
+      // objectOfPaths[1].push([oneSlice, oneSliceDistance]);
+      objectOfPaths[1].push(oneSlice);
       // objectOfPaths[1].push([remainingPath]);
       comparePoint = [
         data.businesses[i].coordinates.latitude,
@@ -40,10 +42,12 @@ export function findPaths(data, pathLength, beginning) {
             data.businesses[j].coordinates.longitude
           );
           remainingPath = remainingPath - walkingDistance;
+          data.businesses[j].travelDistance = walkingDistance;
           if (remainingPath >= 0) {
             let twoSlice = [...oneSlice, data.businesses[j]];
             let twoSiceDistance = [...oneSliceDistance, walkingDistance];
-            objectOfPaths[2].push([twoSlice, twoSiceDistance]);
+            // objectOfPaths[2].push([twoSlice, twoSiceDistance]);
+            objectOfPaths[2].push(twoSlice);
             // objectOfPaths[2].push([remainingPath]);
             comparePoint = [
               data.businesses[j].coordinates.latitude,
@@ -59,6 +63,7 @@ export function findPaths(data, pathLength, beginning) {
                   data.businesses[k].coordinates.longitude
                 );
                 remainingPath = remainingPath - walkingDistance;
+                data.businesses[k].travelDistance = walkingDistance;
                 if (remainingPath >= 0) {
                   let threeSlice = [...twoSlice, data.businesses[k]];
                   let threeSliceDistance = [
@@ -84,6 +89,7 @@ export function findPaths(data, pathLength, beginning) {
                         data.businesses[l].coordinates.longitude
                       );
                       remainingPath = remainingPath - walkingDistance;
+                      data.businesses[l].travelDistance = walkingDistance;
                       if (remainingPath > 0) {
                         let fourSlice = [...threeSlice, data.businesses[l]];
                         let fourSliceDistance = [
