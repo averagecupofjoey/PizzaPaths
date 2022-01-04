@@ -6,6 +6,7 @@ import { useState } from 'react';
 
 const Search = () => {
   const [pathOptions, setOptions] = useState('');
+  const [pathNumber, setPathNumber] = useState(0);
   // const [sliceOptions, setSlices] = useState('');
   let userLatitude;
   let userLongitude;
@@ -86,7 +87,20 @@ const Search = () => {
         <button type='submit'>Find my path!</button>
       </form>
       {pathOptions && (
-        <PizzaPath pizzaData={pathOptions} numSlices={slices.value} />
+        <>
+          <PizzaPath
+            pizzaData={pathOptions}
+            numSlices={slices.value}
+            pathNum={pathNumber}
+          />
+          <button
+            onClick={() => {
+              setPathNumber(200);
+            }}
+          >
+            Give me another path!
+          </button>
+        </>
       )}
     </div>
   );

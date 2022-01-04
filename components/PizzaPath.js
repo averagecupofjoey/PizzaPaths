@@ -1,9 +1,9 @@
 import PizzaJoint from './PizzaJoint';
 import articleStyles from '../styles/Article.module.css';
 
-const PizzaPath = ({ pizzaData, numSlices }) => {
+const PizzaPath = ({ pizzaData, numSlices, pathNum }) => {
   let slices = numSlices;
-  let routeNumber = 0;
+  let routeNumber = pathNum;
   // const getNewPath = function (pizzaData, numSlices) {};
   // if({pizzaData}.{})
   console.log('In pizza path');
