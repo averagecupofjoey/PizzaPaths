@@ -9,6 +9,7 @@ import UserMap from './UserMap';
 const Search = () => {
   const [pathOptions, setOptions] = useState('');
   const [pathNumber, setPathNumber] = useState(0);
+  // const [userCoords, setUserCoords] = useState(undefined);
   const generateNewPath = () => {
     if (pathOptions[Number(slices.value)].length >= 1) {
       let newNum =
@@ -62,6 +63,7 @@ const Search = () => {
             onClick={() => {
               navigator.geolocation.getCurrentPosition(onSuccess, onError);
               function onSuccess(position) {
+                // setUserCoords(position.coords);
                 const { latitude, longitude } = position.coords;
                 userLatitude = latitude;
                 userLongitude = longitude;
@@ -109,7 +111,7 @@ const Search = () => {
             numSlices={slices.value}
             pathNum={pathNumber}
           />
-          <UserMap />
+          <UserMap startCoords={[40.7659937, -73.9921659]} />
           <button
             onClick={() => {
               setPathNumber(generateNewPath());
