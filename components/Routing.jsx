@@ -8,6 +8,15 @@ L.Marker.prototype.options.icon = L.icon({
   iconUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png"
 });
 
+const homeIcon = L.icon({ iconUrl: "/home.png", iconSize: [40,40]})
+const oneIcon = L.icon({ iconUrl: "/pinOne.png", iconSize: [80,80]})
+const twoIcon = L.icon({ iconUrl: "/pinTwo.png", iconSize: [80,80]})
+const threeIcon = L.icon({ iconUrl: "/pinThree.png", iconSize: [80,80]})
+const fourIcon = L.icon({ iconUrl: "/pinFour.png", iconSize: [80,80]})
+
+const appIcons = [];
+appIcons.push(homeIcon, oneIcon, twoIcon, threeIcon, fourIcon);
+
 export default function Routing(props) {
   const map = useMap();
   // console.log("!!!!!!!!!!",props)
@@ -50,10 +59,20 @@ export default function Routing(props) {
 
 
       // waypoints: [L.latLng(props.startCoords[0], props.startCoords[1])],
-      // waypoints: pizzaPoints,
+      waypoints: pizzaWaypoints,
       routeWhileDragging: false,
       draggableWaypoints: false,
-      router: L.Routing.mapbox('pk.eyJ1IjoianJlbGlhcyIsImEiOiJja3k5YzQxMmEwNTIyMm9udjVnaGVsbW1rIn0.1o1FNaFb-nIiMV0xFGyyCg', options)
+      router: L.Routing.mapbox('pk.eyJ1IjoianJlbGlhcyIsImEiOiJja3k5YzQxMmEwNTIyMm9udjVnaGVsbW1rIn0.1o1FNaFb-nIiMV0xFGyyCg', options),
+      plan: L.Routing.plan(pizzaWaypoints, {
+			createMarker: function(i, wp) {
+				return L.marker(wp.latLng, {
+					draggable: false,
+					icon: appIcons[i]
+				});
+			},
+			// geocoder: L.Control.Geocoder.nominatim(),
+			// routeWhileDragging: true
+		}),
     }).addTo(map);
 
     // const routingControl = L.Routing.control({
