@@ -8,7 +8,12 @@ const UserMap = (props) => {
 
   return (
     <div id='map'>
-      <MapWithNoSSR startCoords={props.startCoords} />
+      <MapWithNoSSR
+        startCoords={props.startCoords}
+        pizzaData={props.pizzaData}
+        pathNum={props.pathNum}
+        numSlices={props.numSlices}
+      />
     </div>
   );
 };

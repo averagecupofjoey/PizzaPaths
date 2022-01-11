@@ -27,7 +27,7 @@ const Map = (props) => {
           Hey ! you found me
         </Popup>
       </Marker> */}
-      <Routing></Routing>
+      <Routing startCoords={props.startCoords} pizzaData={props.pizzaData} pathNum={props.pathNum} numSlices={props.numSlices}></Routing>
     </MapContainer>
   )
 }

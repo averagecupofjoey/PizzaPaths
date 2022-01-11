@@ -117,7 +117,12 @@ const Search = () => {
             numSlices={slices.value}
             pathNum={pathNumber}
           />
-          <UserMap startCoords={userCoords} />
+          <UserMap
+            startCoords={userCoords}
+            pizzaData={pathOptions}
+            numSlices={slices.value}
+            pathNum={pathNumber}
+          />
           <button
             onClick={() => {
               setPathNumber(generateNewPath());
