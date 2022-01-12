@@ -9,6 +9,12 @@ export default function Home({ articles }) {
       <Head>
         <title>PizzaPaths</title>
         <meta name='keywords' content='pizza, pizza tours, pizza slice'></meta>
+        {/* <link
+          rel='stylesheet'
+          href='https://unpkg.com/leaflet@1.7.1/dist/leaflet.css'
+          integrity='sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=='
+          crossorigin=''
+        /> */}
       </Head>
       {/* <div className={styles.container}>
         <Search />

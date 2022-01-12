@@ -3,10 +3,13 @@ import { findPaths } from '../utils/findPaths';
 import { distance, deg2rad } from '../utils/distance';
 import axios from 'axios';
 import { useState } from 'react';
+import dynamic from 'next/dynamic';
+import UserMap from './UserMap';
 
 const Search = () => {
   const [pathOptions, setOptions] = useState('');
   const [pathNumber, setPathNumber] = useState(0);
+  const [userCoords, setUserCoords] = useState([]);
   const generateNewPath = () => {
     if (pathOptions[Number(slices.value)].length >= 1) {
       let newNum =
@@ -17,27 +20,29 @@ const Search = () => {
   };
 
   // const [sliceOptions, setSlices] = useState('');
+  const [latitude, longitude] = userCoords;
   let userLatitude;
   let userLongitude;
   const searchPaths = async (event) => {
     event.preventDefault();
     // making our Yelp fetch here with defined long & lat
     if (
-      userLatitude !== undefined &&
-      userLongitude !== undefined &&
+      latitude !== undefined &&
+      longitude !== undefined &&
       slices.value !== '' &&
       pathDistance.value !== ''
     ) {
       console.log('Passing if statement');
       let response = await axios.get(
-        `/api/fetchPizza?latitude=${userLatitude}&longitude=${userLongitude}&pathDistance=${pathDistance.value}`
+        `/api/fetchPizza?latitude=${latitude}&longitude=${longitude}&pathDistance=${pathDistance.value}`
       );
 
-      let beginCoords = [userLatitude, userLongitude];
+      let beginCoords = [latitude, longitude];
       let paths = response.data;
       let possiblePaths = findPaths(paths, pathDistance.value, beginCoords);
       console.log('***** SLICES ON SEARCH.JS', slices.value);
       setOptions(possiblePaths);
+      // setUserCoords(beginCoords);
       // setSlices(slices.value);
 
       // return <PizzaPath pizzaData={possiblePaths} numSlices={slices.value} />;
@@ -60,9 +65,14 @@ const Search = () => {
             onClick={() => {
               navigator.geolocation.getCurrentPosition(onSuccess, onError);
               function onSuccess(position) {
+                console.log('COORDS POSITION', position.coords);
                 const { latitude, longitude } = position.coords;
+                setUserCoords([latitude, longitude]);
+                // userLatitude = userCoords[0];
+                // userLongitude = userCoords[1];
                 userLatitude = latitude;
                 userLongitude = longitude;
+                // userLocation.value = `${userLatitude}, ${userLongitude}`;
                 userLocation.value = `${latitude}, ${longitude}`;
               }
               function onError() {
@@ -103,6 +113,12 @@ const Search = () => {
       {pathOptions && (
         <>
           <PizzaPath
+            pizzaData={pathOptions}
+            numSlices={slices.value}
+            pathNum={pathNumber}
+          />
+          <UserMap
+            startCoords={userCoords}
             pizzaData={pathOptions}
             numSlices={slices.value}
             pathNum={pathNumber}
