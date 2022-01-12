@@ -112,13 +112,13 @@ const Search = () => {
 
       {pathOptions && (
         <>
-          <PizzaPath
+          <UserMap
+            startCoords={userCoords}
             pizzaData={pathOptions}
             numSlices={slices.value}
             pathNum={pathNumber}
           />
-          <UserMap
-            startCoords={userCoords}
+          <PizzaPath
             pizzaData={pathOptions}
             numSlices={slices.value}
             pathNum={pathNumber}
