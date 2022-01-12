@@ -1,17 +1,17 @@
-import React from 'react';
-import dynamic from 'next/dynamic';
+// import React from 'react';
+// import dynamic from 'next/dynamic';
 
-export default function Home() {
-  const MapWithNoSSR = dynamic(() => import('../components/Map.jsx'), {
-    ssr: false,
-  });
+// export default function Home() {
+//   const MapWithNoSSR = dynamic(() => import('../components/Map.jsx'), {
+//     ssr: false,
+//   });
 
-  return (
-    <div id='map'>
-      <MapWithNoSSR />
-    </div>
-  );
-}
+//   return (
+//     <div id='map'>
+//       <MapWithNoSSR />
+//     </div>
+//   );
+// }
 
 // import React, { useState } from 'react';
 // import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
