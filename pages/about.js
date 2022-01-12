@@ -10,7 +10,6 @@ const about = () => {
         <title>About</title>
       </Head>
       <h1>About</h1>
-      <UserMap startCoords={[40.7659937, -73.9921659]}></UserMap>
     </div>
   );
 };
