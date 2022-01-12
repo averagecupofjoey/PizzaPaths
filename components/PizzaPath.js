@@ -12,12 +12,13 @@ const PizzaPath = ({ pizzaData, numSlices, pathNum }) => {
   console.log('Attempting to map data', pizzaData[Number(slices)][routeNumber]);
   return (
     <div className={articleStyles.grid}>
-      {pizzaData[Number(slices)][routeNumber].map((pizzaArray) => (
+      {pizzaData[Number(slices)][routeNumber].map((pizzaArray, index) => (
         // <h3>{`Walk $(slices)`}</h3>
         <PizzaJoint
           pizzaJoint={pizzaArray}
           // pizzaDistance={pizzaData[Number(slices)][routeNumber][1]}
           key={pizzaArray.id}
+          index={index}
           // travelDistance={pizzaArray[1]}
         />
       ))}
