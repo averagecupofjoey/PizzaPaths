@@ -62,17 +62,25 @@ export default function Routing(props) {
       waypoints: pizzaWaypoints,
       routeWhileDragging: false,
       draggableWaypoints: false,
+      addWaypoints: false,
       router: L.Routing.mapbox('pk.eyJ1IjoianJlbGlhcyIsImEiOiJja3k5YzQxMmEwNTIyMm9udjVnaGVsbW1rIn0.1o1FNaFb-nIiMV0xFGyyCg', options),
       plan: L.Routing.plan(pizzaWaypoints, {
 			createMarker: function(i, wp) {
+        if(i===0){
+          				return L.marker(wp.latLng, {
+					draggable: false,
+					icon: appIcons[i]
+				})
+        }
 				return L.marker(wp.latLng, {
 					draggable: false,
 					icon: appIcons[i]
-				});
+				}).bindPopup(`<div class=pizzaPopup><h1>${selectedData[i-1].name}</h1> <img class="img-in-popup" src='${selectedData[i-1].image_url}'/> <h2>${selectedData[i-1].location.display_address[0]}</h2><h3>Yelp rating: ${selectedData[i-1].rating}</h3></div>`);
 			},
 			// geocoder: L.Control.Geocoder.nominatim(),
 			// routeWhileDragging: true
 		}),
+
     }).addTo(map);
 
     // const routingControl = L.Routing.control({
@@ -87,6 +95,11 @@ export default function Routing(props) {
       pizzaWaypoints.push(newLatLng)
     }
     routingControl.setWaypoints(pizzaWaypoints)
+
+    map.on('popupopen', function (e) {
+    e.popup.update()
+
+})
 
     return () => map.removeControl(routingControl);
   }, [map]);

@@ -118,11 +118,11 @@ const Search = () => {
             numSlices={slices.value}
             pathNum={pathNumber}
           />
-          <PizzaPath
+          {/* <PizzaPath
             pizzaData={pathOptions}
             numSlices={slices.value}
             pathNum={pathNumber}
-          />
+          /> */}
           <button
             onClick={() => {
               setPathNumber(generateNewPath());
