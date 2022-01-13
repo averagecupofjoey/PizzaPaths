@@ -58,9 +58,9 @@ const Search = () => {
     // );
   };
   return (
-    <div>
+    <>
       {!pathOptions && (
-        <>
+        <div className='searchContainer'>
           <button
             onClick={() => {
               navigator.geolocation.getCurrentPosition(onSuccess, onError);
@@ -76,7 +76,9 @@ const Search = () => {
                 userLocation.value = `${latitude}, ${longitude}`;
               }
               function onError() {
-                window.alert('You must allow geolocation to use this feature.');
+                window.alert(
+                  'You must allow geolocation to use this feature. If on mobile, make sure your location services are turned on, and allow access for your internet browser.'
+                );
               }
             }}
           >
@@ -89,25 +91,27 @@ const Search = () => {
               id='userLocation'
               placeholder='location'
             ></input>
-            <select name='slices' id='slices'>
-              <option value=''>Slices Desired</option>
-              <option value='1'>1</option>
-              <option value='2'>2</option>
-              <option value='3'>3</option>
-              <option value='4'>4</option>
-            </select>
-            <select name='pathDistance' id='pathDistance'>
-              <option value=''>Path Distance</option>
-              <option value='400'>5 blocks</option>
-              <option value='800'>10 blocks</option>
-              <option value='1609'>20 blocks/1 mile</option>
-              <option value='16090'>200 blocks/10 miles</option>
-              <option value='32180'>400 blocks/20 miles</option>
-            </select>
+            <div className='selectOptions'>
+              <select name='slices' id='slices'>
+                <option value=''>Slices Desired</option>
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+              </select>
+              <select name='pathDistance' id='pathDistance'>
+                <option value=''>Path Distance</option>
+                <option value='400'>5 blocks</option>
+                <option value='800'>10 blocks</option>
+                <option value='1609'>20 blocks/1 mile</option>
+                <option value='16090'>200 blocks/10 miles</option>
+                <option value='32180'>400 blocks/20 miles</option>
+              </select>
+            </div>
             <br />
             <button type='submit'>Find my path!</button>
           </form>
-        </>
+        </div>
       )}
 
       {pathOptions && (
@@ -140,7 +144,7 @@ const Search = () => {
           </select>
         </>
       )}
-    </div>
+    </>
   );
 };
 

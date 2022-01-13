@@ -96,10 +96,22 @@ export default function Routing(props) {
     }
     routingControl.setWaypoints(pizzaWaypoints)
 
+    //adjusts image width loaded from api
     map.on('popupopen', function (e) {
     e.popup.update()
+    })
 
-})
+    //snaps view back to entire route after popup close
+    map.on('popupclose', function(){
+      map.fitBounds(bounds.pad(.05))
+    })
+
+  //sets bounds for route
+  let bounds = L.latLngBounds(pizzaWaypoints)
+  map.fitBounds(bounds.pad(0.05))
+
+  //hides the directions on first load
+  routingControl.hide();
 
     return () => map.removeControl(routingControl);
   }, [map]);

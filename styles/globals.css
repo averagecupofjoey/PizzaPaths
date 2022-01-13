@@ -37,3 +37,18 @@ a {
 .pizzaPopup h3 {
   margin: 0px;
 }
+
+.searchContainer {
+  margin: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  color: inherit;
+  background-color: rgb(180, 187, 187);
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  -webkit-transition: color 0.15s ease, border-color 0.15s ease;
+  -moz-transition: color 0.15s ease, border-color 0.15s ease;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  width: 90%;
+}
