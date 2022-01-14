@@ -10,6 +10,12 @@ const Search = () => {
   const [pathOptions, setOptions] = useState('');
   const [pathNumber, setPathNumber] = useState(0);
   const [userCoords, setUserCoords] = useState([]);
+  const [locationFound, setLocation] = useState(false);
+
+  const toggleClass = () => {
+    setLocation(!locationFound);
+  };
+
   const generateNewPath = () => {
     if (pathOptions[Number(slices.value)].length >= 1) {
       let newNum =
@@ -46,6 +52,10 @@ const Search = () => {
       // setSlices(slices.value);
 
       // return <PizzaPath pizzaData={possiblePaths} numSlices={slices.value} />;
+    } else {
+      window.alert(
+        'In order to search you must share your location, select how many slices you desire, and select your total path maximum distance.'
+      );
     }
 
     // console.log(
@@ -58,9 +68,17 @@ const Search = () => {
     // );
   };
   return (
-    <div>
+    <>
       {!pathOptions && (
-        <>
+        <div className='searchContainer'>
+          <input
+            className={locationFound ? 'success' : null}
+            type='text'
+            name='userLocation'
+            id='userLocation'
+            value={locationFound ? 'Location Found!' : 'Location Not Found'}
+            readOnly
+          ></input>
           <button
             onClick={() => {
               navigator.geolocation.getCurrentPosition(onSuccess, onError);
@@ -74,40 +92,44 @@ const Search = () => {
                 userLongitude = longitude;
                 // userLocation.value = `${userLatitude}, ${userLongitude}`;
                 userLocation.value = `${latitude}, ${longitude}`;
+                {
+                  toggleClass();
+                }
               }
               function onError() {
-                window.alert('You must allow geolocation to use this feature.');
+                window.alert(
+                  'You must allow geolocation to use this feature. If on mobile, make sure your location services are turned on, and allow access for your internet browser.'
+                );
               }
             }}
           >
             Get your exact location
           </button>
           <form onSubmit={searchPaths}>
-            <input
-              type='text'
-              name='userLocation'
-              id='userLocation'
-              placeholder='location'
-            ></input>
-            <select name='slices' id='slices'>
-              <option value=''>Slices Desired</option>
-              <option value='1'>1</option>
-              <option value='2'>2</option>
-              <option value='3'>3</option>
-              <option value='4'>4</option>
-            </select>
-            <select name='pathDistance' id='pathDistance'>
-              <option value=''>Path Distance</option>
-              <option value='400'>5 blocks</option>
-              <option value='800'>10 blocks</option>
-              <option value='1609'>20 blocks/1 mile</option>
-              <option value='16090'>200 blocks/10 miles</option>
-              <option value='32180'>400 blocks/20 miles</option>
-            </select>
-            <br />
-            <button type='submit'>Find my path!</button>
+            <div className='selectOptions'>
+              <select className='selectLeft' name='slices' id='slices'>
+                <option value=''>Slices Desired</option>
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+              </select>
+              <select
+                className='selectRight'
+                name='pathDistance'
+                id='pathDistance'
+              >
+                <option value=''>Path Distance</option>
+                <option value='400'>5 blocks</option>
+                <option value='800'>10 blocks</option>
+                <option value='1609'>1 mile</option>
+                <option value='16090'>10 miles</option>
+                <option value='32180'>20 miles</option>
+              </select>
+            </div>
+            <button type='submit'>Find my path! </button>
           </form>
-        </>
+        </div>
       )}
 
       {pathOptions && (
@@ -118,29 +140,31 @@ const Search = () => {
             numSlices={slices.value}
             pathNum={pathNumber}
           />
-          <PizzaPath
+          {/* <PizzaPath
             pizzaData={pathOptions}
             numSlices={slices.value}
             pathNum={pathNumber}
-          />
-          <button
-            onClick={() => {
-              setPathNumber(generateNewPath());
-              // console.log(pathOptions);
-            }}
-          >
-            Give me another path!
-          </button>
-          <select name='slices' id='slices'>
-            {/* <option value=''>Slices Desired</option> */}
-            <option value='1'>1 slice</option>
-            <option value='2'>2 slices</option>
-            <option value='3'>3 slices</option>
-            <option value='4'>4 slices</option>
-          </select>
+          /> */}
+          <div className='alternativeSelect'>
+            <button
+              onClick={() => {
+                setPathNumber(generateNewPath());
+                // console.log(pathOptions);
+              }}
+            >
+              Give me another path!
+            </button>
+            <select name='slices' id='slices'>
+              {/* <option value=''>Slices Desired</option> */}
+              <option value='1'>1 slice</option>
+              <option value='2'>2 slices</option>
+              <option value='3'>3 slices</option>
+              <option value='4'>4 slices</option>
+            </select>
+          </div>
         </>
       )}
-    </div>
+    </>
   );
 };
 
