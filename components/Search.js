@@ -10,6 +10,12 @@ const Search = () => {
   const [pathOptions, setOptions] = useState('');
   const [pathNumber, setPathNumber] = useState(0);
   const [userCoords, setUserCoords] = useState([]);
+  const [locationFound, setLocation] = useState(false);
+
+  const toggleClass = () => {
+    setLocation(!locationFound);
+  };
+
   const generateNewPath = () => {
     if (pathOptions[Number(slices.value)].length >= 1) {
       let newNum =
@@ -74,6 +80,9 @@ const Search = () => {
                 userLongitude = longitude;
                 // userLocation.value = `${userLatitude}, ${userLongitude}`;
                 userLocation.value = `${latitude}, ${longitude}`;
+                {
+                  toggleClass();
+                }
               }
               function onError() {
                 window.alert(
@@ -86,10 +95,11 @@ const Search = () => {
           </button>
           <form onSubmit={searchPaths}>
             <input
+              className={locationFound ? 'success' : null}
               type='text'
               name='userLocation'
               id='userLocation'
-              placeholder='location'
+              value={locationFound ? 'Location Found!' : 'Location Not Found'}
               readOnly
             ></input>
             <div className='selectOptions'>
@@ -108,9 +118,9 @@ const Search = () => {
                 <option value=''>Path Distance</option>
                 <option value='400'>5 blocks</option>
                 <option value='800'>10 blocks</option>
-                <option value='1609'>20 blocks/1 mile</option>
-                <option value='16090'>200 blocks/10 miles</option>
-                <option value='32180'>400 blocks/20 miles</option>
+                <option value='1609'>1 mile</option>
+                <option value='16090'>10 miles</option>
+                <option value='32180'>20 miles</option>
               </select>
             </div>
             <button type='submit'>Find my path!</button>
