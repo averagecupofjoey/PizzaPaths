@@ -71,6 +71,14 @@ const Search = () => {
     <>
       {!pathOptions && (
         <div className='searchContainer'>
+          <input
+            className={locationFound ? 'success' : null}
+            type='text'
+            name='userLocation'
+            id='userLocation'
+            value={locationFound ? 'Location Found!' : 'Location Not Found'}
+            readOnly
+          ></input>
           <button
             onClick={() => {
               navigator.geolocation.getCurrentPosition(onSuccess, onError);
@@ -98,14 +106,6 @@ const Search = () => {
             Get your exact location
           </button>
           <form onSubmit={searchPaths}>
-            <input
-              className={locationFound ? 'success' : null}
-              type='text'
-              name='userLocation'
-              id='userLocation'
-              value={locationFound ? 'Location Found!' : 'Location Not Found'}
-              readOnly
-            ></input>
             <div className='selectOptions'>
               <select className='selectLeft' name='slices' id='slices'>
                 <option value=''>Slices Desired</option>
@@ -127,7 +127,7 @@ const Search = () => {
                 <option value='32180'>20 miles</option>
               </select>
             </div>
-            <button type='submit'>Find my path!</button>
+            <button type='submit'>Find my path! </button>
           </form>
         </div>
       )}
