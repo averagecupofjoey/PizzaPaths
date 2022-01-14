@@ -90,16 +90,21 @@ const Search = () => {
               name='userLocation'
               id='userLocation'
               placeholder='location'
+              readOnly
             ></input>
             <div className='selectOptions'>
-              <select name='slices' id='slices'>
+              <select className='selectLeft' name='slices' id='slices'>
                 <option value=''>Slices Desired</option>
                 <option value='1'>1</option>
                 <option value='2'>2</option>
                 <option value='3'>3</option>
                 <option value='4'>4</option>
               </select>
-              <select name='pathDistance' id='pathDistance'>
+              <select
+                className='selectRight'
+                name='pathDistance'
+                id='pathDistance'
+              >
                 <option value=''>Path Distance</option>
                 <option value='400'>5 blocks</option>
                 <option value='800'>10 blocks</option>
@@ -108,7 +113,6 @@ const Search = () => {
                 <option value='32180'>400 blocks/20 miles</option>
               </select>
             </div>
-            <br />
             <button type='submit'>Find my path!</button>
           </form>
         </div>
@@ -127,21 +131,23 @@ const Search = () => {
             numSlices={slices.value}
             pathNum={pathNumber}
           /> */}
-          <button
-            onClick={() => {
-              setPathNumber(generateNewPath());
-              // console.log(pathOptions);
-            }}
-          >
-            Give me another path!
-          </button>
-          <select name='slices' id='slices'>
-            {/* <option value=''>Slices Desired</option> */}
-            <option value='1'>1 slice</option>
-            <option value='2'>2 slices</option>
-            <option value='3'>3 slices</option>
-            <option value='4'>4 slices</option>
-          </select>
+          <div className='alternativeSelect'>
+            <button
+              onClick={() => {
+                setPathNumber(generateNewPath());
+                // console.log(pathOptions);
+              }}
+            >
+              Give me another path!
+            </button>
+            <select name='slices' id='slices'>
+              {/* <option value=''>Slices Desired</option> */}
+              <option value='1'>1 slice</option>
+              <option value='2'>2 slices</option>
+              <option value='3'>3 slices</option>
+              <option value='4'>4 slices</option>
+            </select>
+          </div>
         </>
       )}
     </>

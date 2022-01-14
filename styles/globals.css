@@ -47,8 +47,70 @@ a {
   text-decoration: none;
   border: 1px solid #eaeaea;
   border-radius: 10px;
-  -webkit-transition: color 0.15s ease, border-color 0.15s ease;
-  -moz-transition: color 0.15s ease, border-color 0.15s ease;
-  transition: color 0.15s ease, border-color 0.15s ease;
   width: 90%;
+}
+
+.alternativeSelect {
+  padding-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.alternativeSelect select {
+  margin-top: 0.3rem;
+}
+
+.selectOptions select {
+  /* justify-content: space-around; */
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.selectLeft {
+  margin-right: 0.5rem;
+}
+
+.selectRight {
+  margin-left: 0.5rem;
+}
+select {
+  /* width: 25%; */
+  font-size: 15px;
+  color: #ffffff;
+  background-color: #5c5454;
+  border-radius: 15px;
+  /* display: flex; */
+  /* padding: 5px; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  border: 2px solid rgb(180 187 187);
+  cursor: pointer;
+  font-weight: 100;
+  text-align: center;
+}
+
+button {
+  /* width: 25%; */
+  font-size: 15px;
+  color: #ffffff;
+  background-color: #5c5454;
+  border-radius: 15px;
+  /* display: flex; */
+  padding: 5px;
+  /* justify-content: center; */
+  /* align-items: center; */
+  border: 2px solid rgb(180 187 187);
+  cursor: pointer;
+  font-weight: 100;
+  text-align: center;
+}
+
+input {
+  background-color: red;
+  text-align: center;
+  color: #ffffff;
+}
+
+.success {
+  background-color: green;
 }
