@@ -52,6 +52,10 @@ const Search = () => {
       // setSlices(slices.value);
 
       // return <PizzaPath pizzaData={possiblePaths} numSlices={slices.value} />;
+    } else {
+      window.alert(
+        'In order to search you must share your location, select how many slices you desire, and select your total path maximum distance.'
+      );
     }
 
     // console.log(
