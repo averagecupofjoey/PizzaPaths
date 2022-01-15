@@ -133,16 +133,24 @@ input {
   background-color: green;
 }
 
-@media not all and (min-resolution: 0.1dpi) {
+/* @media not all and (min-resolution: 0.1dpi) {
   @media {
     .safari-only .selectOptions select {
+      -webkit-padding-start: 42%;
+    }
+  }
+} */
+
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) and (display: flow-root) {
+    .selectOptions select {
       -webkit-padding-start: 42%;
     }
   }
 }
 
 @media not all and (min-resolution: 0.001dpcm) {
-  @supports (-webkit-appearance: none) and (display: flow-root) {
+  @supports (-webkit-touch-callout: none) {
     .selectOptions select {
       -webkit-padding-start: 42%;
     }
