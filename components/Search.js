@@ -109,10 +109,10 @@ const Search = () => {
             <div className='selectOptions'>
               <select className='selectLeft' name='slices' id='slices'>
                 <option value=''>Slices Desired</option>
-                <option value='1'>1</option>
-                <option value='2'>2</option>
-                <option value='3'>3</option>
-                <option value='4'>4</option>
+                <option value='1'>1 slice</option>
+                <option value='2'>2 slices</option>
+                <option value='3'>3 slices</option>
+                <option value='4'>4 slices</option>
               </select>
               <select
                 className='selectRight'
