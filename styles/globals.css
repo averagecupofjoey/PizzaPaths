@@ -144,7 +144,10 @@ input {
 @media not all and (min-resolution: 0.001dpcm) {
   @supports (-webkit-appearance: none) and (display: flow-root) {
     .selectOptions select {
-      -webkit-padding-start: 42%;
+      -webkit-padding-start: 41%;
+    }
+    select {
+      -webkit-padding-start: 35%;
     }
   }
 }
@@ -152,7 +155,10 @@ input {
 @media not all and (min-resolution: 0.001dpcm) {
   @supports (-webkit-touch-callout: none) {
     .selectOptions select {
-      -webkit-padding-start: 42%;
+      -webkit-padding-start: 40%;
+    }
+    select {
+      -webkit-padding-start: 40%;
     }
   }
 }
