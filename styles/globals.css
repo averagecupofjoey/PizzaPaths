@@ -70,6 +70,7 @@ a {
   /* justify-content: space-around; */
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+  /* -webkit-padding-start: 42%; */
 }
 
 .selectLeft {
@@ -94,6 +95,12 @@ select {
   cursor: pointer;
   font-weight: 100;
   text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  text-align: -moz-center;
 }
 
 button {
@@ -124,4 +131,28 @@ input {
 
 .success {
   background-color: green;
+}
+
+/* @media not all and (min-resolution: 0.1dpi) {
+  @media {
+    .safari-only .selectOptions select {
+      -webkit-padding-start: 42%;
+    }
+  }
+} */
+
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) and (display: flow-root) {
+    .selectOptions select {
+      -webkit-padding-start: 42%;
+    }
+  }
+}
+
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-touch-callout: none) {
+    .selectOptions select {
+      -webkit-padding-start: 42%;
+    }
+  }
 }
