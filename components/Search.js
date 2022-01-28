@@ -81,25 +81,27 @@ const Search = () => {
           ></input>
           <button
             onClick={() => {
-              navigator.geolocation.getCurrentPosition(onSuccess, onError);
-              function onSuccess(position) {
-                console.log('COORDS POSITION', position.coords);
-                const { latitude, longitude } = position.coords;
-                setUserCoords([latitude, longitude]);
-                // userLatitude = userCoords[0];
-                // userLongitude = userCoords[1];
-                userLatitude = latitude;
-                userLongitude = longitude;
-                // userLocation.value = `${userLatitude}, ${userLongitude}`;
-                userLocation.value = `${latitude}, ${longitude}`;
-                {
-                  toggleClass();
+              if (locationFound === false) {
+                navigator.geolocation.getCurrentPosition(onSuccess, onError);
+                function onSuccess(position) {
+                  console.log('COORDS POSITION', position.coords);
+                  const { latitude, longitude } = position.coords;
+                  setUserCoords([latitude, longitude]);
+                  // userLatitude = userCoords[0];
+                  // userLongitude = userCoords[1];
+                  userLatitude = latitude;
+                  userLongitude = longitude;
+                  // userLocation.value = `${userLatitude}, ${userLongitude}`;
+                  userLocation.value = `${latitude}, ${longitude}`;
+                  {
+                    toggleClass();
+                  }
                 }
-              }
-              function onError() {
-                window.alert(
-                  'You must allow geolocation to use this feature. If on mobile, make sure your location services are turned on, and allow access for your internet browser.'
-                );
+                function onError() {
+                  window.alert(
+                    'You must allow geolocation to use this feature. If on mobile, make sure your location services are turned on, and allow access for your internet browser.'
+                  );
+                }
               }
             }}
           >
