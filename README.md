@@ -23,7 +23,7 @@ In order for PizzaPaths to work on mobile, you must visit through an https:// co
 Expand step by step directions by clicking the button on the top right of a generated map.
 
 <div align="center">
-<img src="/public/screenshots/directions.jpeg" width="25%" height="25%" alt="Screenshot of sample directions" />
+<img src="/public/screenshots/directions.jpeg" width="40%" height="40%" alt="Screenshot of sample directions" />
 </div>
 
 ## Additional Details
