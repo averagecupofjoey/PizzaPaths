@@ -1,4 +1,10 @@
 Deployed website: https://pizzapaths.herokuapp.com
+<<<<<<< HEAD
+=======
+
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+>>>>>>> 4902669b6d7606d666be6321b1eafe80c8a6cc15
 
 ## About
 
