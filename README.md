@@ -15,7 +15,6 @@ In order for PizzaPaths to work on mobile, you must visit through an https:// co
 <div align="center">
 <img src="/public/screenshots/allowLocation.jpeg" width="40%" height="40%" alt="Screenshot of allowing location" />
 <img src="/public/screenshots/selectedOptions.jpeg" width="40%" height="40%" alt="Screenshot of options available" />
-<img src="/public/screenshots/samplePath.jpeg" width="40%" height="40%" alt="Screenshot of sample path" />
 </div>
 
 ## Directions
