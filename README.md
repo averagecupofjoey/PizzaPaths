@@ -5,7 +5,7 @@ Deployed website: https://pizzapaths.herokuapp.com
 PizzaPaths is a tool for pizza enthusiasts that automatically generates a pizza tour for the user based on the total walking distance and number of stops desired.
 
 <div align="center">
-<img src="/public/screenshots/samplePath.jpeg" width="25%" height="25%" alt="Screenshot of sample path" />
+<img src="/public/screenshots/samplePath.jpeg" width="40%" height="40%" alt="Screenshot of sample path" />
 </div>
 
 ## How to use
@@ -13,9 +13,9 @@ PizzaPaths is a tool for pizza enthusiasts that automatically generates a pizza 
 In order for PizzaPaths to work on mobile, you must visit through an https:// connection. Simply allow the website access to your location, select your total walking distance, number of slices desired, and click "Find My Path!" to generate a unique pizza tour for you to go on.
 
 <div align="center">
-<img src="/public/screenshots/allowLocation.jpeg" width="25%" height="25%" alt="Screenshot of allowing location" />
-<img src="/public/screenshots/selectedOptions.jpeg" width="25%" height="25%" alt="Screenshot of options available" />
-<img src="/public/screenshots/samplePath.jpeg" width="25%" height="25%" alt="Screenshot of sample path" />
+<img src="/public/screenshots/allowLocation.jpeg" width="40%" height="40%" alt="Screenshot of allowing location" />
+<img src="/public/screenshots/selectedOptions.jpeg" width="40%" height="40%" alt="Screenshot of options available" />
+<img src="/public/screenshots/samplePath.jpeg" width="40%" height="40%" alt="Screenshot of sample path" />
 </div>
 
 ## Directions
@@ -31,7 +31,7 @@ Expand step by step directions by clicking the button on the top right of a gene
 Click on the PizzaPoint markers to open a popup of additional information for the location including name, address, and current Yelp rating.
 
 <div align="center">
-<img src="/public/screenshots/details.jpeg" width="25%" height="25%" alt="Screenshot of details" />
+<img src="/public/screenshots/details.jpeg" width="40%" height="40%" alt="Screenshot of details" />
 </div>
 
 ## Technologies used
