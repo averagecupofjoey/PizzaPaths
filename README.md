@@ -1,34 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Deployed website: https://pizzapaths.herokuapp.com
 
-## Getting Started
+## About
 
-First, run the development server:
+PizzaPaths is a tool for pizza enthusiasts that automatically generates a pizza tour for the user based on the total walking distance and number of stops desired.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+<div align="center">
+<img src="/public/screenshots/samplePath.jpg" alt="Screenshot of sample path" />
+</div>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How to use
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+In order for PizzaPaths to work on mobile, you must visit through an https:// connection. Simply allow the website access to your location, select your total walking distance, number of slices desired, and click "Find My Path!" to generate a unique pizza tour for you to go on.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+<div align="center">
+<img src="/public/screenshots/allowLocation.jpg" alt="Screenshot of allowing location" />
+<img src="/public/screenshots/selectedOptions.jpg" alt="Screenshot of options available" />
+<img src="/public/screenshots/samplePath.jpg" alt="Screenshot of sample path" />
+</div>
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Directions
 
-## Learn More
+Expand step by step directions by clicking the button on the top right of a generated map.
 
-To learn more about Next.js, take a look at the following resources:
+<div align="center">
+<img src="/public/screenshots/directions.jpg" alt="Screenshot of sample directions" />
+</div>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Additional Details
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Click on the PizzaPoint markers to open a popup of additional information for the location including name, address, and current Yelp rating.
 
-## Deploy on Vercel
+<div align="center">
+<img src="/public/screenshots/details.jpg" alt="Screenshot of details" />
+</div>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Technologies used
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+PizzaPaths currently makes use of the following technologies:
+
+- [JavaScript](https://www.javascript.com/)
+- [Node.js](https://nodejs.org/en/)
+- [Next.js](https://nextjs.org/)
+- [Leaflet.js](https://leafletjs.com)
+- [React](https://reactjs.org)
+- [Axios](https://www.axios.com)
+- [YelpAPI](https://yelp.github.io/)
+- [Mapbox Routing](https://docs.mapbox.com/)
+- [OpenStreetMap](https://www.openstreetmap.org/)
