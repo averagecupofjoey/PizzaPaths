@@ -12,7 +12,6 @@ export default async function fetchPizza(req, res) {
         // 'Bearer 3fqLIjij6CnKDgiYDYByPGk218ZzvutZASJADGE8bY1bR_6QDgAfjdw_uTfcapaLiGdIPWEMX1t9LU0xtJDLcm_1nU876Qsg5v9ayG33LzMPOQY3InYhibCXZd24YXYx',
         // 'Access-Control-Allow-Origin': '*',
       },
-      // mode: 'no-cors',
     }
   );
   res.send(response.data);

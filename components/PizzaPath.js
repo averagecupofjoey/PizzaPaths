@@ -4,23 +4,11 @@ import articleStyles from '../styles/Article.module.css';
 const PizzaPath = ({ pizzaData, numSlices, pathNum }) => {
   let slices = numSlices;
   let routeNumber = pathNum;
-  // const getNewPath = function (pizzaData, numSlices) {};
-  // if({pizzaData}.{})
-  console.log('In pizza path');
-  console.log(slices);
-  console.log('The initial pizza data', pizzaData);
-  console.log('Attempting to map data', pizzaData[Number(slices)][routeNumber]);
+
   return (
     <div className={articleStyles.grid}>
       {pizzaData[Number(slices)][routeNumber].map((pizzaArray, index) => (
-        // <h3>{`Walk $(slices)`}</h3>
-        <PizzaJoint
-          pizzaJoint={pizzaArray}
-          // pizzaDistance={pizzaData[Number(slices)][routeNumber][1]}
-          key={pizzaArray.id}
-          index={index}
-          // travelDistance={pizzaArray[1]}
-        />
+        <PizzaJoint pizzaJoint={pizzaArray} key={pizzaArray.id} index={index} />
       ))}
     </div>
   );
