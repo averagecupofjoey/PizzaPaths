@@ -9,7 +9,7 @@ import Routing from './Routing';
 
 const Map = (props) => {
   return (
-    <MapContainer center={props.startCoords} zoom={15} scrollWheelZoom={false} style={{height: "50vh", width: "50vh" }}>
+    <MapContainer center={props.startCoords} zoom={15} scrollWheelZoom={false} style={{height: "50vh", width: "100%" }}>
        <TileLayer
   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

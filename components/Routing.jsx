@@ -36,6 +36,8 @@ export default function Routing(props) {
       routeWhileDragging: false,
       draggableWaypoints: false,
       addWaypoints: false,
+      show: false,
+      collapsible: true,
       router: L.Routing.mapbox('pk.eyJ1IjoianJlbGlhcyIsImEiOiJja3k5YzQxMmEwNTIyMm9udjVnaGVsbW1rIn0.1o1FNaFb-nIiMV0xFGyyCg', options),
       plan: L.Routing.plan(pizzaWaypoints, {
 			createMarker: function(i, wp) {
@@ -76,7 +78,7 @@ export default function Routing(props) {
   map.fitBounds(bounds.pad(0.05))
 
   //hides the directions on first load
-  routingControl.hide();
+  // routingControl.hide();
 
     return () => map.removeControl(routingControl);
   }, [map]);
