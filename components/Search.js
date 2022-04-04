@@ -132,10 +132,18 @@ const Search = () => {
               Give me another path!
             </button>
             <select name='slices' id='slices'>
-              <option value='1'>1 slice</option>
-              <option value='2'>2 slices</option>
-              <option value='3'>3 slices</option>
-              <option value='4'>4 slices</option>
+              <option value='1' selected={slices.value === '1'}>
+                1 slice
+              </option>
+              <option value='2' selected={slices.value === '2'}>
+                2 slices
+              </option>
+              <option value='3' selected={slices.value === '3'}>
+                3 slices
+              </option>
+              <option value='4' selected={slices.value === '4'}>
+                4 slices
+              </option>
             </select>
           </div>
         </>
