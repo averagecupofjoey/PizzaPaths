@@ -1,4 +1,4 @@
-Deployed website: https://pizzapaths.herokuapp.com
+Deployed website: www.pizzapaths.com
 
 ## About
 
