@@ -19,7 +19,13 @@ appIcons.push(homeIcon, oneIcon, twoIcon, threeIcon, fourIcon);
 
 export default function Routing(props) {
   const map = useMap();
-  const selectedData = props.pizzaData[Number(props.numSlices)][props.pathNum]
+  let selectedData;
+  if(props.pizzaData[Number(props.numSlices)].length >=1){
+  selectedData = props.pizzaData[Number(props.numSlices)][props.pathNum]
+
+  } else {
+    selectedData = props.pizzaData[1][props.pathNum]
+  }
   const numSlices = Number(props.numSlices)
 
 
@@ -57,7 +63,6 @@ export default function Routing(props) {
     }).addTo(map);
 
     for(let i =0; i< selectedData.length; i++){
-      console.log(selectedData[i])
       let newLatLng = new L.latLng(selectedData[i].coordinates.latitude, selectedData[i].coordinates.longitude)
       pizzaWaypoints.push(newLatLng)
     }
