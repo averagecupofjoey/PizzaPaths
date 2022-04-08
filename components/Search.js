@@ -102,6 +102,7 @@ const Search = () => {
                 id='pathDistance'
               >
                 <option value=''>Path Distance</option>
+                <option value='125'>1 block</option>
                 <option value='400'>5 blocks</option>
                 <option value='800'>10 blocks</option>
                 <option value='1609'>1 mile</option>
@@ -132,18 +133,29 @@ const Search = () => {
               Give me another path!
             </button>
             <select name='slices' id='slices'>
-              <option value='1' selected={slices.value === '1'}>
-                1 slice
-              </option>
-              <option value='2' selected={slices.value === '2'}>
-                2 slices
-              </option>
-              <option value='3' selected={slices.value === '3'}>
-                3 slices
-              </option>
-              <option value='4' selected={slices.value === '4'}>
-                4 slices
-              </option>
+              {pathOptions[1].length >= 1 && (
+                <option value='1' selected={slices.value === '1'}>
+                  1 slice
+                </option>
+              )}
+
+              {pathOptions[2].length >= 1 && (
+                <option value='2' selected={slices.value === '2'}>
+                  2 slices
+                </option>
+              )}
+
+              {pathOptions[3].length >= 1 && (
+                <option value='3' selected={slices.value === '3'}>
+                  3 slices
+                </option>
+              )}
+
+              {pathOptions[4].length >= 1 && (
+                <option value='4' selected={slices.value === '4'}>
+                  4 slices
+                </option>
+              )}
             </select>
           </div>
         </>
