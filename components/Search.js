@@ -102,7 +102,7 @@ const Search = () => {
                 id='pathDistance'
               >
                 <option value=''>Path Distance</option>
-                <option value='125'>1 block</option>
+                {/* <option value='125'>1 block</option> */}
                 <option value='400'>5 blocks</option>
                 <option value='800'>10 blocks</option>
                 <option value='1609'>1 mile</option>
