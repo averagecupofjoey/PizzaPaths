@@ -6,11 +6,21 @@ import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import UserMap from './UserMap';
 
+import { BiWalk } from 'react-icons/bi';
+import { AiFillCar } from 'react-icons/ai';
+
+import {
+  BsFillCheckSquareFill,
+  BsFillXSquareFill,
+  BsFillQuestionSquareFill,
+} from 'react-icons/bs';
+
 const Search = () => {
   const [pathOptions, setOptions] = useState('');
   const [pathNumber, setPathNumber] = useState(0);
   const [userCoords, setUserCoords] = useState([]);
   const [locationFound, setLocation] = useState(false);
+  const [pathType, setPathType] = useState('');
 
   const toggleClass = () => {
     setLocation(!locationFound);
@@ -53,7 +63,7 @@ const Search = () => {
   };
   return (
     <>
-      {!pathOptions && (
+      {/* {!pathOptions && (
         <div className='searchContainer'>
           <input
             className={locationFound ? 'success' : null}
@@ -102,7 +112,6 @@ const Search = () => {
                 id='pathDistance'
               >
                 <option value=''>Path Distance</option>
-                {/* <option value='125'>1 block</option> */}
                 <option value='400'>5 blocks</option>
                 <option value='800'>10 blocks</option>
                 <option value='1609'>1 mile</option>
@@ -112,6 +121,114 @@ const Search = () => {
             </div>
             <button type='submit'>Find my path! </button>
           </form>
+        </div>
+      )} */}
+
+      {!pathOptions && (
+        <div className='w-full flex flex-col items-center'>
+          <div className='w-full max-w-[800px] bg-slate-500'>
+            <div className=' flex flex-row justify-around mb-8'>
+              <div className='flex flex-col items-center '>
+                <BiWalk className='min-w-[200px] min-h-[200px]' />
+                I&apos;m walking
+                <input
+                  className='h-4 w-4 mb-8'
+                  type='radio'
+                  value='walking'
+                  name='transport'
+                  onClick={() => setPathType('walking')}
+                />
+                <div className='flex flex-col items-center '>
+                  <BsFillQuestionSquareFill className='min-w-[50px] min-h-[50px]' />
+                  From my location
+                  <input
+                    type='radio'
+                    className='h-4 w-4'
+                    value='gps'
+                    name='pathLocation'
+                    onClick={() => setPathType('walking')}
+                  />
+                </div>
+              </div>
+              <div className='flex flex-col items-center'>
+                <AiFillCar className='min-w-[200px] min-h-[200px]' />
+                I&apos;m driving
+                <input
+                  type='radio'
+                  className='h-4 w-4 mb-8'
+                  value='driving'
+                  name='transport'
+                  onClick={() => setPathType('driving')}
+                />
+                <div className='flex flex-col items-center'>
+                  <input
+                    className='rounded-md p-2 min-h-[50px]'
+                    placeholder='&nbsp; Address and area code'
+                  />
+                  From this location
+                  <input
+                    type='radio'
+                    className='h-4 w-4'
+                    value='address'
+                    name='pathLocation'
+                    onClick={() => setPathType('driving')}
+                  />
+                </div>
+              </div>
+            </div>
+            {/*
+            <div className=' flex flex-row justify-around mb-8'>
+              <div className='flex flex-col items-center '>
+                <BsFillQuestionSquareFill className='min-w-[50px] min-h-[50px]' />
+                From my location
+                <input
+                  type='radio'
+                  className='h-4 w-4'
+                  value='gps'
+                  name='pathLocation'
+                  onClick={() => setPathType('walking')}
+                />
+              </div>
+
+              <div className='flex flex-col items-center'>
+                <input
+                  className='rounded-md p-2'
+                  placeholder='&nbsp; Address and area code'
+                />
+                From this location
+                <input
+                  type='radio'
+                  className='h-4 w-4'
+                  value='address'
+                  name='pathLocation'
+                  onClick={() => setPathType('driving')}
+                />
+              </div>
+            </div> */}
+
+            <div className=' flex flex-row justify-around mb-8'>
+              <div className='flex flex-col items-center '>
+                I want:
+                <select className='rounded-md text-center p-2'>
+                  <option value='' disabled selected>
+                    Slices Desired
+                  </option>
+                  <option value='1'>🍕</option>
+                  <option value='2'>🍕 🍕</option>
+                  <option value='3'>🍕 🍕 🍕</option>
+                  <option value='4'>🍕 🍕 🍕 🍕</option>
+                </select>
+              </div>
+              <div className='flex flex-col items-center '>
+                Within:
+                <select />
+              </div>
+              <div className='flex flex-col items-center '>
+                Sorted by:
+                <select />
+              </div>
+            </div>
+          </div>
         </div>
       )}
 

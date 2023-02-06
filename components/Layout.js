@@ -18,7 +18,6 @@ const Layout = ({ children }) => {
       </div>
     </>
   );
-  //I think this line above is forcing the ;
 };
 
 export default Layout;

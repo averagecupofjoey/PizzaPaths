@@ -9,13 +9,6 @@ const Header = () => {
       <p className={headerStyles.description}>
         Find yourself while sampling the best slices your city has to offer
       </p>
-      {/* <style jsx>
-        {`
-          .title {
-            color: red;
-          }
-        `}
-      </style> */}
     </div>
   );
 };
