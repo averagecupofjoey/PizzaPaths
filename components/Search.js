@@ -57,7 +57,7 @@ const Search = () => {
       setOptions(possiblePaths);
     } else {
       window.alert(
-        'In order to search you must share your location, select how many slices you desire, and select your total path maximum distance.'
+        'In order to search you must share your location or enter an address, select how many slices you desire, and select your total path maximum distance.'
       );
     }
   };
@@ -126,10 +126,10 @@ const Search = () => {
 
       {!pathOptions && (
         <div className='w-full flex flex-col items-center'>
-          <div className='w-full max-w-[800px] bg-slate-500'>
-            <div className=' flex flex-row justify-around mb-8'>
+          <div className='w-full max-w-[800px] bg-containerColor text-sm md:text-xl rounded-md border border-[#eaeaea] mt-2'>
+            <div className=' flex flex-row justify-around mb-6 md:mb-8'>
               <div className='flex flex-col items-center '>
-                <BiWalk className='min-w-[200px] min-h-[200px]' />
+                <BiWalk className='min-w-[100px] min-h-[100px] md:min-w-[150px] md:min-h-[150px]' />
                 I&apos;m walking
                 <input
                   className='h-4 w-4 mb-8'
@@ -151,7 +151,7 @@ const Search = () => {
                 </div>
               </div>
               <div className='flex flex-col items-center'>
-                <AiFillCar className='min-w-[200px] min-h-[200px]' />
+                <AiFillCar className='min-w-[100px] min-h-[100px] md:min-w-[150px] md:min-h-[150px]' />
                 I&apos;m driving
                 <input
                   type='radio'
@@ -206,11 +206,12 @@ const Search = () => {
               </div>
             </div> */}
 
-            <div className=' flex flex-row justify-around mb-8'>
-              <div className='flex flex-col items-center '>
+            {/* <div className=' flex flex-row justify-around mb-8'> */}
+            <div className='grid grid-cols-2 md:grid-cols-3'>
+              <div className='flex flex-col items-center col-span-1 md:col-span-1'>
                 I want:
-                <select className='rounded-md text-center p-2'>
-                  <option value='' disabled selected>
+                <select className='rounded-md text-center p-2 '>
+                  <option defaultValue='' disabled selected>
                     Slices Desired
                   </option>
                   <option value='1'>🍕</option>
@@ -219,14 +220,53 @@ const Search = () => {
                   <option value='4'>🍕 🍕 🍕 🍕</option>
                 </select>
               </div>
-              <div className='flex flex-col items-center '>
+              <div className='flex flex-col items-center col-span-1 md:col-span-1'>
                 Within:
-                <select />
+                {pathType === '' && (
+                  <select className='rounded-md text-center p-2'>
+                    <option defaultValue='' disabled selected>
+                      Path Distance
+                    </option>
+                  </select>
+                )}
+                {pathType === 'walking' && (
+                  <select className='rounded-md text-center p-2'>
+                    <option defaultValue='' disabled selected>
+                      Path Distance
+                    </option>
+                    <option value='400'>5 blocks</option>
+                    <option value='800'>10 blocks</option>
+                    <option value='1200'>15 blocks</option>
+                    <option value='1609'>1 mile</option>
+                    <option value='3218'>2 miles</option>
+                  </select>
+                )}
+                {pathType === 'driving' && (
+                  <select className='rounded-md text-center p-2'>
+                    <option defaultValue='' disabled selected>
+                      Path Distance
+                    </option>
+                    <option value='1609'>1 mile</option>
+                    <option value='3218'>2 miles</option>
+                    <option value='16090'>10 miles</option>
+                    <option value='32180'>20 miles</option>
+                  </select>
+                )}
               </div>
-              <div className='flex flex-col items-center '>
+              <div className='flex flex-col items-center col-span-2 md:col-span-1 mt-2 md:mt-0'>
                 Sorted by:
-                <select />
+                <select className='rounded-md text-center p-2'>
+                  <option value='default'>Magic</option>
+                  <option value='closest'>Closest</option>
+                  <option value='rating'>Highest Rated</option>
+                  <option value='reviews'>Most Reviewed</option>
+                </select>
               </div>
+            </div>
+            <div className='flex flex-row items-center justify-center mb-2'>
+              <button className='p-2 mb-2 mt-4 bg-red-700 rounded-md border border-black'>
+                Find my path
+              </button>
             </div>
           </div>
         </div>
