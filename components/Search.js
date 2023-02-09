@@ -272,224 +272,105 @@ const Search = () => {
               </div>
             )}
 
-            {pathType && userCoords && numSlices === '' && (
-              <div className='w-full'>
-                <div className='flex flex-row justify-center items-center'>
-                  I want
-                </div>
-                <div className='grid grid-cols-2 grow'>
-                  <div className='col-span-1 flex flex-col items-center mb-6 mt-4 pt-2 mx-2 pb-2 hover:bg-slate-400 rounded-md hover:border border-black'>
-                    <span className='text-3xl md:text-6xl'>🍕</span>
-                    <span>1 slice</span>
-                    <input
-                      type='radio'
-                      className='h-4 w-4'
-                      value='address'
-                      name='pathLocation'
-                      onClick={() => setNumSlices('1')}
-                    />
+            {pathType && userCoords && (
+              <div className='flex flex-row items-center justify-around w-full text-sm md:text-lg'>
+                <div className='grid grid-rows-4 h-full'>
+                  {/* {!numSlices && ( */}
+                  <div className='flex flex-col items-center justify-center row-span-1'>
+                    I want:
+                    <select
+                      className='rounded-md text-center p-2 '
+                      // name='pathDistance'
+                      // id='pathDistance'
+                      onChange={(e) => {
+                        setNumSlices(e.target.value);
+                      }}
+                    >
+                      <option defaultValue='' disabled selected>
+                        Slices
+                      </option>
+                      <option value='1'>🍕</option>
+                      <option value='2'>🍕 🍕</option>
+                      <option value='3'>🍕 🍕 🍕</option>
+                      <option value='4'>🍕 🍕 🍕 🍕</option>
+                    </select>
                   </div>
-                  <div className='col-span-1 flex flex-col items-center mb-6 mt-4'>
-                    <span className='text-3xl md:text-6xl'>🍕🍕 </span>
-                    <span>2 Slices</span>
-                    <input
-                      type='radio'
-                      className='h-4 w-4'
-                      value='address'
-                      name='pathLocation'
-                      onClick={() => setNumSlices('2')}
-                    />
-                  </div>
-                  <div className='col-span-1 flex flex-col items-center mb-6 mt-4'>
-                    <span className='text-3xl md:text-6xl'>🍕🍕🍕 </span>
-                    <span>3 Slices</span>
-                    <input
-                      type='radio'
-                      className='h-4 w-4'
-                      value='address'
-                      name='pathLocation'
-                      onClick={() => setNumSlices('3')}
-                    />
-                  </div>
-                  <div className='col-span-1 flex flex-col items-center mb-6 mt-4'>
-                    <span className='text-3xl md:text-6xl'>🍕🍕🍕🍕 </span>
-                    <span>4 Slices</span>
-                    <input
-                      type='radio'
-                      className='h-4 w-4'
-                      value='address'
-                      name='pathLocation'
-                      onClick={() => setNumSlices('4')}
-                    />
-                  </div>
-                </div>
+                  {/* )} */}
 
-                <div className='absolute left-1 bottom-1'>
-                  <span
-                    className='underline'
-                    onClick={() => {
-                      setUserCoords('');
-                      setLocationType('');
-                      setNumSlices('');
-                      setPathDistance('');
-                      setSearchSort('');
-                      setAddress('');
-                    }}
-                  >
-                    Go Back
-                  </span>
-                </div>
-              </div>
-            )}
-
-            {pathType && userCoords && numSlices && pathDistance === '' && (
-              <div className='w-full text-lg'>
-                <div className='flex flex-row justify-center items-center'>
-                  Within
-                </div>
-                <div className='grid grid-cols-3 grow'>
-                  {pathType === 'walking' && (
-                    <>
-                      <div className='col-span-1 flex flex-col items-center mb-6 mt-4 pt-2 mx-2 pb-2 bg-slate-400 rounded-md border border-black shadow-sm shadow-black'>
-                        <span>🚶</span>
-                        <span>5 Blocks</span>
-                        <input
-                          type='radio'
-                          className='h-4 w-4'
-                          value='distance'
-                          name='distance'
-                          onClick={() => setPathDistance('400')}
-                        />
-                      </div>
-                      <div className='col-span-1 flex flex-col items-center mb-6 mt-4 pt-2 mx-2 pb-2 bg-slate-400 rounded-md border border-black shadow-sm shadow-black'>
-                        <span>🚶</span>
-                        <span>10 Blocks</span>
-                        <input
-                          type='radio'
-                          className='h-4 w-4'
-                          value='distance'
-                          name='distance'
-                          onClick={() => setPathDistance('800')}
-                        />
-                      </div>
-                      <div className='col-span-1 flex flex-col items-center mb-6 mt-4 pt-2 mx-2 pb-2 bg-slate-400 rounded-md border border-black shadow-sm shadow-black'>
-                        <span>🚶 🚶</span>
-                        <span>15 Blocks</span>
-                        <input
-                          type='radio'
-                          className='h-4 w-4'
-                          value='distance'
-                          name='distance'
-                          onClick={() => setPathDistance('1200')}
-                        />
-                      </div>
-                      <div className='col-span-1 flex flex-col items-center mb-6 mt-4 pt-2 mx-2 pb-2 bg-slate-400 rounded-md border border-black shadow-sm shadow-black'>
-                        <span>🚶 🚶</span>
-                        <span>20 Blocks</span>
-                        <input
-                          type='radio'
-                          className='h-4 w-4'
-                          value='distance'
-                          name='distance'
-                          onClick={() => setPathDistance('1609')}
-                        />
-                      </div>
-                      <div className='col-span-1 flex flex-col items-center mb-6 mt-4 pt-2 mx-2 pb-2 bg-slate-400 rounded-md border border-black shadow-sm shadow-black'>
-                        <span>🚶 🚶 🚶</span>
-                        <span>25 Blocks</span>
-                        <input
-                          type='radio'
-                          className='h-4 w-4'
-                          value='distance'
-                          name='distance'
-                          onClick={() => setPathDistance('2009')}
-                        />
-                      </div>
-                      <div className='col-span-1 flex flex-col items-center mb-6 mt-4 pt-2 mx-2 pb-2 bg-slate-400 rounded-md border border-black shadow-sm shadow-black'>
-                        <span>🚶 🚶 🚶</span>
-                        <span>30 Blocks</span>
-                        <input
-                          type='radio'
-                          className='h-4 w-4'
-                          value='distance'
-                          name='distance'
-                          onClick={() => setPathDistance('2409')}
-                        />
-                      </div>
-                    </>
+                  {numSlices && (
+                    <div className='flex flex-col items-center justify-center row-span-1'>
+                      Within:
+                      {pathType === 'walking' && (
+                        <select
+                          className='rounded-md text-center p-2 '
+                          name='pathDistance'
+                          id='pathDistance'
+                          onChange={(e) => {
+                            setPathDistance(e.target.value);
+                          }}
+                        >
+                          <option defaultValue='' disabled selected>
+                            Path Distance
+                          </option>
+                          <option value='400'>5 blocks</option>
+                          <option value='800'>10 blocks</option>
+                          <option value='1200'>15 blocks</option>
+                          <option value='1609'>20 blocks</option>
+                          <option value='2009'>25 blocks</option>
+                          <option value='2409'>30 blocks</option>
+                        </select>
+                      )}
+                      {pathType === 'driving' && (
+                        <select
+                          className='rounded-md text-center p-2'
+                          name='pathDistance'
+                          id='pathDistance'
+                          onChange={(e) => {
+                            setPathDistance(e.target.value);
+                          }}
+                        >
+                          <option defaultValue='' disabled selected>
+                            Path Distance
+                          </option>
+                          <option value='1609'>1 mile</option>
+                          <option value='3218'>2 miles</option>
+                          <option value='8045'>5 miles</option>
+                          <option value='16090'>10 miles</option>
+                          <option value='24135'>15 miles</option>
+                          <option value='32180'>20 miles</option>
+                        </select>
+                      )}
+                    </div>
                   )}
-                  {pathType === 'driving' && (
-                    <>
-                      <div className='col-span-1 flex flex-col items-center mb-6 mt-4 pt-2 mx-2 pb-2 bg-slate-400 rounded-md border border-black'>
-                        <span>🚗</span>
-                        <span>1 Mile</span>
-                        <input
-                          type='radio'
-                          className='h-4 w-4'
-                          value='distance'
-                          name='distance'
-                          onClick={() => setPathDistance('1609')}
-                        />
-                      </div>
-                      <div className='col-span-1 flex flex-col items-center mb-6 mt-4 pt-2 mx-2 pb-2 bg-slate-400 rounded-md border border-black'>
-                        <span>🚗</span>
-                        <span>2 Miles</span>
-                        <input
-                          type='radio'
-                          className='h-4 w-4'
-                          value='distance'
-                          name='distance'
-                          onClick={() => setPathDistance('3218')}
-                        />
-                      </div>
-                      <div className='col-span-1 flex flex-col items-center mb-6 mt-4 pt-2 mx-2 pb-2 bg-slate-400 rounded-md border border-black'>
-                        <span>🚗 🚗</span>
-                        <span>5 Miles</span>
-                        <input
-                          type='radio'
-                          className='h-4 w-4'
-                          value='distance'
-                          name='distance'
-                          onClick={() => setPathDistance('8045')}
-                        />
-                      </div>
-                      <div className='col-span-1 flex flex-col items-center mb-6 mt-4 pt-2 mx-2 pb-2 bg-slate-400 rounded-md border border-black'>
-                        <span>🚗 🚗</span>
-                        <span>10 Miles</span>
-                        <input
-                          type='radio'
-                          className='h-4 w-4'
-                          value='distance'
-                          name='distance'
-                          onClick={() => setPathDistance('16090')}
-                        />
-                      </div>
-                      <div className='col-span-1 flex flex-col items-center mb-6 mt-4 pt-2 mx-2 pb-2 bg-slate-400 rounded-md border border-black'>
-                        <span>🚗 🚗 🚗</span>
-                        <span>15 Miles</span>
-                        <input
-                          type='radio'
-                          className='h-4 w-4'
-                          value='distance'
-                          name='distance'
-                          onClick={() => setPathDistance('24135')}
-                        />
-                      </div>
-                      <div className='col-span-1 flex flex-col items-center mb-6 mt-4 pt-2 mx-2 pb-2 bg-slate-400 rounded-md border border-black'>
-                        <span>🚗 🚗 🚗</span>
-                        <span>20 Miles</span>
-                        <input
-                          type='radio'
-                          className='h-4 w-4'
-                          value='distance'
-                          name='distance'
-                          onClick={() => setPathDistance('32180')}
-                        />
-                      </div>
-                    </>
+                  {pathDistance && (
+                    <div className='flex flex-col items-center justify-center row-span-1'>
+                      Sorted by:
+                      <select
+                        className='rounded-md text-center p-2 '
+                        name='searchType'
+                        id='searchType'
+                        onChange={(e) => {
+                          setSearchSort(e.target.value);
+                        }}
+                      >
+                        <option value='default'>Magic</option>
+                        <option value='closest'>Closest</option>
+                        <option value='rating'>Highest Rated</option>
+                        <option value='reviews'>Most Reviewed</option>
+                      </select>
+                    </div>
+                  )}
+                  {numSlices && pathDistance && searchSort && (
+                    <div className='flex items-center justify-center row-span-1'>
+                      <button
+                        className='p-2 rounded bg-slate-300'
+                        onClick={() => searchPaths()}
+                      >
+                        Find My Path
+                      </button>
+                    </div>
                   )}
                 </div>
-
                 <div className='absolute left-1 bottom-1'>
                   <span
                     className='underline'
