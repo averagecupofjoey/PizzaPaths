@@ -43,18 +43,45 @@ const Search = () => {
   const [pathDistance, setPathDistance] = useState('');
   const [searchSort, setSearchSort] = useState('');
 
-  // let address = '';
+  // state for google link
+  const [googleLink, setGoogleLink] = useState('');
 
   //makes it so found GPS coords stay and only accessed once
   const toggleClass = () => {
     setLocationFound(true);
   };
 
-  const generateNewPath = () => {
-    if (pathOptions[Number(slices.value)].length >= 1) {
+  const generateNewPath = (sliceValue) => {
+    // console.log('HELLO', sliceValue);
+    if (pathOptions[Number(sliceValue)].length >= 1) {
       let newNum =
-        Math.ceil(Math.random() * pathOptions[Number(slices.value)].length) - 1;
-      console.log(newNum);
+        Math.ceil(Math.random() * pathOptions[Number(sliceValue)].length) - 1;
+      // console.log('newNum is', newNum);
+      // console.log('Options length is', pathOptions[Number(sliceValue)].length);
+      googleLink = `https://www.google.com/maps/dir/${latitude},+${longitude}`;
+      let otherLink = `https://www.google.com/maps/dir/${latitude},+${longitude}`;
+
+      for (let i = 0; i < sliceValue; i++) {
+        console.log('&&&&', pathOptions[sliceValue][newNum][i]);
+        googleLink = googleLink.concat(
+          `/${pathOptions[sliceValue][newNum][i].coordinates.latitude},+${pathOptions[sliceValue][newNum][i].coordinates.longitude}`
+        );
+
+        otherLink = otherLink.concat(
+          `/${pathOptions[sliceValue][newNum][i].name
+            .replace(/ /g, '+')
+            .replace(/\//g, '%2F')},${pathOptions[sliceValue][newNum][
+            i
+          ].location.address1
+            .replace(/ /g, '+')
+            .replace(/\//g, '%2F')}`
+        );
+        // console.log(otherLink);
+        // console.log(googleLink);
+        setGoogleLink(otherLink);
+      }
+
+      // console.log('FUCK', pathOptions[sliceValue][newNum]);
       return newNum;
     }
   };
@@ -130,6 +157,14 @@ const Search = () => {
     setUserCoords([foundLatitude, foundLongitude]);
     setAddressLoading(false);
   };
+
+  // let googleLink = `https://www.google.com/maps/dir/${latitude},+${longitude}`;
+  // let googleLink;
+
+  // for(let i = 1; i=slices.value; i++ ){
+  //   console.log("o")
+  // }
+  // 'https://www.google.com/maps/dir/40.7659076,+-73.9920316/40.76388,+-73.98821/';
   return (
     <>
       {!pathOptions && (
@@ -280,13 +315,13 @@ const Search = () => {
                     I want:
                     <select
                       className='rounded-md text-center p-2 '
-                      // name='pathDistance'
-                      // id='pathDistance'
+                      name='slices'
+                      id='slices'
                       onChange={(e) => {
                         setNumSlices(e.target.value);
                       }}
                     >
-                      <option defaultValue='' disabled selected>
+                      <option defaultValue='' disabled>
                         Slices
                       </option>
                       <option value='1'>🍕</option>
@@ -309,7 +344,7 @@ const Search = () => {
                             setPathDistance(e.target.value);
                           }}
                         >
-                          <option defaultValue='' disabled selected>
+                          <option defaultValue='' disabled>
                             Path Distance
                           </option>
                           <option value='400'>5 blocks</option>
@@ -329,7 +364,7 @@ const Search = () => {
                             setPathDistance(e.target.value);
                           }}
                         >
-                          <option defaultValue='' disabled selected>
+                          <option defaultValue='' disabled>
                             Path Distance
                           </option>
                           <option value='1609'>1 mile</option>
@@ -397,19 +432,23 @@ const Search = () => {
           <UserMap
             startCoords={userCoords}
             pizzaData={pathOptions}
-            numSlices={numSlices}
+            numSlices={slices.value}
             pathNum={pathNumber}
           />
-          <div className='alternativeSelect'>
+          <div className='flex flex-col items-center'>
             <button
-              className='newPath'
+              className='p-2 bg-slate-400'
               onClick={() => {
-                setPathNumber(generateNewPath());
+                setPathNumber(generateNewPath(slices.value));
               }}
             >
               Give me another path!
             </button>
-            <select name='slices' id='slices'>
+            <select
+              name='slices'
+              id='slices'
+              // onChange={(e) => setNumSlices(e.target.value)}
+            >
               {pathOptions[1].length >= 1 && (
                 <option value='1' selected={numSlices === '1'}>
                   1 slice
@@ -435,6 +474,9 @@ const Search = () => {
               )}
             </select>
           </div>
+          <a target='_blank' rel='noreferrer' href={googleLink}>
+            <button onClick={() => {}}>Open Route In Google Maps</button>
+          </a>
         </>
       )}
     </>
@@ -442,73 +484,3 @@ const Search = () => {
 };
 
 export default Search;
-
-{
-  /* {numSlices !== '' && (
-                  <div className='flex flex-col items-center m-2'>
-                    Within:
-                    {pathType === 'walking' && (
-                      <select
-                        className='rounded-md text-center p-2 '
-                        name='pathDistance'
-                        id='pathDistance'
-                        onChange={(e) => {
-                          setPathDistance(e.target.value);
-                        }}
-                      >
-                        <option defaultValue='' disabled selected>
-                          Path Distance
-                        </option>
-                        <option value='400'>5 blocks</option>
-                        <option value='800'>10 blocks</option>
-                        <option value='1200'>15 blocks</option>
-                        <option value='1609'>1 mile</option>
-                        <option value='3218'>2 miles</option>
-                      </select>
-                    )}
-                    {pathType === 'driving' && (
-                      <select
-                        className='rounded-md text-center p-2'
-                        name='pathDistance'
-                        id='pathDistance'
-                        onChange={(e) => {
-                          setPathDistance(e.target.value);
-                        }}
-                      >
-                        <option defaultValue='' disabled selected>
-                          Path Distance
-                        </option>
-                        <option value='1609'>1 mile</option>
-                        <option value='3218'>2 miles</option>
-                        <option value='16090'>10 miles</option>
-                        <option value='32180'>20 miles</option>
-                      </select>
-                    )}
-                  </div>
-                )}
-                {numSlices && pathDistance && (
-                  <div className='flex flex-col items-center m-2 mb-4'>
-                    Sorted by:
-                    <select
-                      className='rounded-md text-center p-2 '
-                      name='searchType'
-                      id='searchType'
-                      onChange={(e) => {
-                        setSearchSort(e.target.value);
-                      }}
-                    >
-                      <option value='default'>Magic</option>
-                      <option value='closest'>Closest</option>
-                      <option value='rating'>Highest Rated</option>
-                      <option value='reviews'>Most Reviewed</option>
-                    </select>
-                  </div>
-                )}
-                {numSlices && pathDistance && searchSort && (
-                  <div className='absolute right-1 bottom-1'>
-                    <span className='underline' onClick={() => searchPaths()}>
-                      Find My Path
-                    </span>
-                  </div>
-                )} */
-}
