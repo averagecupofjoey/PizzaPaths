@@ -80,8 +80,6 @@ const Search = () => {
         // console.log(googleLink);
         setGoogleLink(otherLink);
       }
-
-      // console.log('FUCK', pathOptions[sliceValue][newNum]);
       return newNum;
     }
   };
@@ -168,7 +166,7 @@ const Search = () => {
   return (
     <>
       {!pathOptions && (
-        <div className='w-full flex flex-col items-center'>
+        <div className='w-full flex flex-col items-center font-boogaloo'>
           <div className='flex w-full max-w-[800px] bg-containerColor rounded-md border border-[#eaeaea] mt-2 min-h-[50vh] relative '>
             {!pathType && (
               // <div className='flex items-center flex-1'>
@@ -215,7 +213,7 @@ const Search = () => {
 
             {pathType && !userCoords && (
               // <div className='w-full h-full flex flex-row'>
-              <div className='flex flex-row items-center justify-around w-full text-sm md:text-lg'>
+              <div className='flex flex-row items-center justify-around w-full text-lg'>
                 <div className='flex flex-col items-center '>
                   {gpsCoords !== '' && (
                     <BsFillCheckSquareFill className='min-w-[50px] min-h-[50px] text-green-700' />
@@ -312,17 +310,17 @@ const Search = () => {
                 <div className='grid grid-rows-4 h-full'>
                   {/* {!numSlices && ( */}
                   <div className='flex flex-col items-center justify-center row-span-1'>
-                    I want:
+                    {/* I want: */}
                     <select
-                      className='rounded-md text-center p-2 '
+                      className='rounded-md text-center p-2 bg-[#4F646f] shadow-lg shadow-black'
                       name='slices'
                       id='slices'
                       onChange={(e) => {
                         setNumSlices(e.target.value);
                       }}
                     >
-                      <option defaultValue='' disabled>
-                        Slices
+                      <option defaultValue='' disabled selected>
+                        {/* Slices */}I Want
                       </option>
                       <option value='1'>🍕</option>
                       <option value='2'>🍕 🍕</option>
@@ -334,18 +332,19 @@ const Search = () => {
 
                   {numSlices && (
                     <div className='flex flex-col items-center justify-center row-span-1'>
-                      Within:
+                      {/* Within: */}
                       {pathType === 'walking' && (
                         <select
-                          className='rounded-md text-center p-2 '
+                          className='rounded-md text-center p-2 bg-[#4F646f]'
                           name='pathDistance'
                           id='pathDistance'
                           onChange={(e) => {
                             setPathDistance(e.target.value);
                           }}
                         >
-                          <option defaultValue='' disabled>
-                            Path Distance
+                          <option defaultValue='' disabled selected>
+                            {/* Path Distance */}
+                            Within
                           </option>
                           <option value='400'>5 blocks</option>
                           <option value='800'>10 blocks</option>
@@ -357,15 +356,16 @@ const Search = () => {
                       )}
                       {pathType === 'driving' && (
                         <select
-                          className='rounded-md text-center p-2'
+                          className='rounded-md text-center p-2 bg-[#4F646f]'
                           name='pathDistance'
                           id='pathDistance'
                           onChange={(e) => {
                             setPathDistance(e.target.value);
                           }}
                         >
-                          <option defaultValue='' disabled>
-                            Path Distance
+                          <option defaultValue='' disabled selected>
+                            {/* Path Distance */}
+                            Within
                           </option>
                           <option value='1609'>1 mile</option>
                           <option value='3218'>2 miles</option>
@@ -379,15 +379,18 @@ const Search = () => {
                   )}
                   {pathDistance && (
                     <div className='flex flex-col items-center justify-center row-span-1'>
-                      Sorted by:
+                      {/* Sorted by: */}
                       <select
-                        className='rounded-md text-center p-2 '
+                        className='rounded-md text-center p-2 bg-[#4F646f]'
                         name='searchType'
                         id='searchType'
                         onChange={(e) => {
                           setSearchSort(e.target.value);
                         }}
                       >
+                        <option defaultValue='' disabled selected>
+                          Sorted By
+                        </option>
                         <option value='default'>Magic</option>
                         <option value='closest'>Closest</option>
                         <option value='rating'>Highest Rated</option>
@@ -429,54 +432,69 @@ const Search = () => {
 
       {pathOptions && (
         <>
-          <UserMap
-            startCoords={userCoords}
-            pizzaData={pathOptions}
-            numSlices={slices.value}
-            pathNum={pathNumber}
-          />
-          <div className='flex flex-col items-center'>
-            <button
-              className='p-2 bg-slate-400'
-              onClick={() => {
-                setPathNumber(generateNewPath(slices.value));
-              }}
-            >
-              Give me another path!
-            </button>
-            <select
-              name='slices'
-              id='slices'
-              // onChange={(e) => setNumSlices(e.target.value)}
-            >
-              {pathOptions[1].length >= 1 && (
-                <option value='1' selected={numSlices === '1'}>
-                  1 slice
-                </option>
-              )}
-
-              {pathOptions[2].length >= 1 && (
-                <option value='2' selected={numSlices === '2'}>
-                  2 slices
-                </option>
-              )}
-
-              {pathOptions[3].length >= 1 && (
-                <option value='3' selected={numSlices === '3'}>
-                  3 slices
-                </option>
-              )}
-
-              {pathOptions[4].length >= 1 && (
-                <option value='4' selected={numSlices === '4'}>
-                  4 slices
-                </option>
-              )}
-            </select>
+          <div className='border-black border-[4px] rounded-md '>
+            <UserMap
+              startCoords={userCoords}
+              pizzaData={pathOptions}
+              numSlices={slices.value}
+              pathNum={pathNumber}
+            />
           </div>
-          <a target='_blank' rel='noreferrer' href={googleLink}>
-            <button onClick={() => {}}>Open Route In Google Maps</button>
-          </a>
+          <div className='flex flex-col items-center text-lg bg-slate-200 pb-4 border-black border-[4px] rounded-md font-boogaloo'>
+            <div className='flex flex-row'>
+              <button
+                className='p-1 bg-slate-400 rounded-md shadow-md shadow-black mt-2 mr-2'
+                onClick={() => {
+                  setPathNumber(generateNewPath(slices.value));
+                }}
+              >
+                Give me another path!
+              </button>
+              <select
+                className='p-1 mt-2 rounded-md shadow-md shadow-black'
+                name='slices'
+                id='slices'
+                // onChange={(e) => setNumSlices(e.target.value)}
+              >
+                {pathOptions[1].length >= 1 && (
+                  <option value='1' selected={numSlices === '1'}>
+                    1 slice
+                  </option>
+                )}
+
+                {pathOptions[2].length >= 1 && (
+                  <option value='2' selected={numSlices === '2'}>
+                    2 slices
+                  </option>
+                )}
+
+                {pathOptions[3].length >= 1 && (
+                  <option value='3' selected={numSlices === '3'}>
+                    3 slices
+                  </option>
+                )}
+
+                {pathOptions[4].length >= 1 && (
+                  <option value='4' selected={numSlices === '4'}>
+                    4 slices
+                  </option>
+                )}
+              </select>
+            </div>
+            <a target='_blank' rel='noreferrer' href={googleLink}>
+              <button className='p-1 rounded-md bg-slate-400 mt-4 shadow-md shadow-black'>
+                Open Route In Google Maps
+              </button>
+            </a>
+          </div>
+
+          <div className='flex flex-grow flex-col items-center justify-center relative font-boogaloo'>
+            <div className='absolute bottom-1'>
+              <button className='p-1 rounded-md bg-slate-400 mt-4 shadow-md shadow-black align-bottom'>
+                Start over
+              </button>
+            </div>
+          </div>
         </>
       )}
     </>

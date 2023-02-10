@@ -10,6 +10,9 @@ module.exports = {
       colors: {
         containerColor: 'rgb(180, 187, 187)',
       },
+      fontFamily: {
+        boogaloo: ['"Boogaloo"', 'cursive'],
+      },
     },
   },
   plugins: [],
