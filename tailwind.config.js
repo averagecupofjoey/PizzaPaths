@@ -13,6 +13,9 @@ module.exports = {
       fontFamily: {
         boogaloo: ['"Boogaloo"', 'cursive'],
       },
+      screens: {
+        thin: '388px',
+      },
     },
   },
   plugins: [],

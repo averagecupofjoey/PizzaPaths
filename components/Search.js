@@ -92,8 +92,6 @@ const Search = () => {
 
   // gets userGPS coords, sets loading spinner, alerts if geolocation is off
   const selectUserGps = () => {
-    // setLocationType('gps');
-    // setGpsLoading(true);
     setLocalStatus('loading');
 
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
@@ -109,8 +107,8 @@ const Search = () => {
       }, 500);
     }
     function onError() {
-      window.alert(
-        'You must allow geolocation to use this feature. Make sure your location services are turned on, and allow access for your internet browser through settings.'
+      return toast.error(
+        'Location services for your browser must be turned on and allowed in order to use this feature.'
       );
     }
   };
@@ -132,7 +130,41 @@ const Search = () => {
 
       // let beginCoords = [latitude, longitude];
       let paths = response.data;
+      if (paths.businesses.length === 0) {
+        return toast.error(
+          'Sorry, no pizza places found within that distance. Please extend your search radius or try another location.'
+        );
+      }
       let possiblePaths = findPaths(paths, pathDistance, userCoords);
+      let otherLink = `https://www.google.com/maps/dir/${latitude},+${longitude}`;
+
+      if (possiblePaths[numSlices].length !== 0) {
+        for (let i = 0; i < numSlices; i++) {
+          otherLink = otherLink.concat(
+            `/${possiblePaths[numSlices][0][i].name
+              .replace(/ /g, '+')
+              .replace(/\//g, '%2F')},${possiblePaths[numSlices][0][
+              i
+            ].location.address1
+              .replace(/ /g, '+')
+              .replace(/\//g, '%2F')}`
+          );
+          setGoogleLink(otherLink);
+        }
+      } else {
+        otherLink = otherLink.concat(
+          `/${possiblePaths[1][0][0].name
+            .replace(/ /g, '+')
+            .replace(/\//g, '%2F')},${possiblePaths[1][0][0].location.address1
+            .replace(/ /g, '+')
+            .replace(/\//g, '%2F')}`
+        );
+        setGoogleLink(otherLink);
+        toast.error(
+          'Number of slices desired not possible. Here are some alternatives.'
+        );
+      }
+
       setOptions(possiblePaths);
     } else {
       window.alert(
@@ -143,7 +175,7 @@ const Search = () => {
 
   const getAddressCoords = async () => {
     if (address.length <= 5) {
-      return toast('Please enter a real address');
+      return toast.error('Please enter a real address');
     }
     setAddressLoading(true);
     const response = await fetch(
@@ -152,14 +184,17 @@ const Search = () => {
 
     const data = await response.json();
 
-    let foundLatitude = data[0]?.lat ?? 0;
-    let foundLongitude = data[0]?.lon ?? 0;
-
-    setUserCoords([foundLatitude, foundLongitude]);
-    setAddressLoading(false);
+    if (data[0]) {
+      let foundLatitude = data[0].lat;
+      let foundLongitude = data[0].lon;
+      setUserCoords([foundLatitude, foundLongitude]);
+      setAddressLoading(false);
+    } else {
+      return toast.error(
+        'Sorry, that location did not return any results. For best results include your area code in the search bar.'
+      );
+    }
   };
-
-  const notify = () => toast('Wow so easy!');
 
   return (
     <>
@@ -167,9 +202,9 @@ const Search = () => {
         <div className='w-full flex flex-col items-center font-boogaloo'>
           <div className='flex w-full max-w-[800px] bg-containerColor rounded-md border border-[#eaeaea] mt-2 min-h-[50vh] relative '>
             {!pathType && (
-              <div className='flex flex-row items-center justify-around w-full'>
+              <div className='flex flex-row items-center justify-around w-full text-lg thin:text-2xl sm:text-3xl md:text-4xl'>
                 <div className='flex flex-col items-center '>
-                  <BiWalk className='min-w-[150px] min-h-[200px] md:min-w-[200px] md:min-h-[200px]' />
+                  <BiWalk className='min-w-[150px] min-h-[200px] sm:min-w-[220px] sm:min-h-[220px]' />
                   <button
                     className='p-1 rounded-md bg-slate-400 shadow-black focus:ring-4 shadow-lg transform active:scale-y-75 transition-transform flex'
                     onClick={() => setPathType('walking')}
@@ -178,39 +213,19 @@ const Search = () => {
                   </button>
                 </div>
                 <div className='flex flex-col items-center'>
-                  <AiFillCar className='min-w-[150px] min-h-[200px] md:min-w-[200px] md:min-h-[200px]' />
+                  <AiFillCar className='min-w-[150px] min-h-[200px] sm:min-w-[220px] sm:min-h-[220px]' />
                   <button
                     className='p-1 rounded-md bg-slate-400 shadow-black focus:ring-4 shadow-lg transform active:scale-y-75 transition-transform flex'
                     onClick={() => setPathType('driving')}
                   >
                     I&apos;m driving
                   </button>
-                  {/* <input
-                      type='radio'
-                      className='h-4 w-4 mb-8'
-                      value='driving'
-                      name='transport'
-                      // onClick={() => setSelectedPath('driving')}
-                      onClick={() => setPathType('driving')}
-                    /> */}
                 </div>
-                {/* </div> */}
-
-                {/* {selectedPath !== '' && (
-                  <div className='flex justify-center mb-4 ease-in duration-1000 absolute right-1 bottom-1'>
-                    <button
-                      className='px-4 py-2 bg-[#f30000] rounded-md'
-                      onClick={() => setPathType(selectedPath)}
-                    >
-                      Next
-                    </button>
-                  </div>
-                )} */}
               </div>
             )}
 
             {pathType && !userCoords && (
-              <div className='flex flex-row items-center justify-around w-full text-lg'>
+              <div className='flex flex-row items-center justify-around w-full text-lg thin:text-2xl sm:text-3xl md:text-4xl'>
                 <div className='flex flex-col items-center '>
                   {localStatus === 'found' && (
                     <BsFillCheckSquareFill className='min-w-[50px] min-h-[50px] text-green-700' />
@@ -239,7 +254,7 @@ const Search = () => {
                 <div className='flex flex-col items-center'>
                   <input
                     className='rounded-md p-2 min-h-[50px]'
-                    placeholder='&nbsp; Address & area code'
+                    placeholder=' Address & area code'
                     onChange={updateAddress}
                   />
                   <button
@@ -248,14 +263,6 @@ const Search = () => {
                   >
                     From this location
                   </button>
-                  {/* <input
-                    type='radio'
-                    className='h-4 w-4'
-                    value='address'
-                    name='pathLocation'
-                    disabled={inputDisabled}
-                    onClick={() => setLocationType('address')}
-                  /> */}
                 </div>
                 {/* </div> */}
                 {locationType !== '' && (
@@ -263,14 +270,6 @@ const Search = () => {
                     {locationType === 'gps' && gpsCoords === '' && (
                       <div>.... Loading</div>
                     )}
-                    {/* {locationType === 'gps' && gpsCoords !== '' && (
-                      <button
-                        className='px-4 py-2 bg-[#f30000] rounded-md'
-                        onClick={() => setUserCoords(gpsCoords)}
-                      >
-                        Next GPS
-                      </button>
-                    )} */}
 
                     {locationType === 'address' &&
                       addressLoading === false &&
@@ -308,13 +307,13 @@ const Search = () => {
             )}
 
             {pathType && userCoords && (
-              <div className='flex flex-row items-center justify-around w-full text-sm md:text-lg'>
+              <div className='flex flex-row items-center justify-around w-full text-2xl md:text-3xl lg:text-4xl'>
                 <div className='grid grid-rows-4 h-full'>
                   {/* {!numSlices && ( */}
                   <div className='flex flex-col items-center justify-center row-span-1'>
                     {/* I want: */}
                     <select
-                      className='rounded-md text-center p-2 bg-[#4F646f] shadow-lg shadow-black'
+                      className='rounded-md text-center p-2 bg-slate-400 shadow-lg shadow-black min-w-full'
                       name='slices'
                       id='slices'
                       onChange={(e) => {
@@ -337,7 +336,7 @@ const Search = () => {
                       {/* Within: */}
                       {pathType === 'walking' && (
                         <select
-                          className='rounded-md text-center p-2 bg-[#4F646f]'
+                          className='rounded-md text-center p-2 bg-slate-400 shadow-lg shadow-black min-w-full'
                           name='pathDistance'
                           id='pathDistance'
                           onChange={(e) => {
@@ -358,7 +357,7 @@ const Search = () => {
                       )}
                       {pathType === 'driving' && (
                         <select
-                          className='rounded-md text-center p-2 bg-[#4F646f]'
+                          className='rounded-md text-center p-2 bg-slate-400 shadow-lg shadow-black min-w-full'
                           name='pathDistance'
                           id='pathDistance'
                           onChange={(e) => {
@@ -383,7 +382,7 @@ const Search = () => {
                     <div className='flex flex-col items-center justify-center row-span-1'>
                       {/* Sorted by: */}
                       <select
-                        className='rounded-md text-center p-2 bg-[#4F646f]'
+                        className='rounded-md text-center p-2 bg-slate-400 shadow-lg shadow-black min-w-full'
                         name='searchType'
                         id='searchType'
                         onChange={(e) => {
@@ -403,7 +402,7 @@ const Search = () => {
                   {numSlices && pathDistance && searchSort && (
                     <div className='flex items-center justify-center row-span-1'>
                       <button
-                        className='p-1 rounded-md  shadow-black focus:ring-4 shadow-lg transform active:scale-y-75 transition-transform flex bg-slate-300'
+                        className='p-1 rounded-md bg-slate-400 shadow-black focus:ring-4 shadow-lg transform active:scale-y-75 transition-transform flex'
                         onClick={() => searchPaths()}
                       >
                         Find My Path
@@ -443,59 +442,66 @@ const Search = () => {
               pathNum={pathNumber}
             />
           </div>
-          <div className='flex flex-col items-center text-lg bg-slate-200 pb-4 border-black border-x-4 border-b-4 rounded-b-md font-boogaloo'>
-            <div className='flex flex-row'>
-              <button
-                className='p-1 bg-slate-400 rounded-md shadow-md shadow-black mt-2 mr-2'
-                onClick={() => {
-                  setPathNumber(generateNewPath(slices.value));
-                }}
-              >
-                Give me another path!
-              </button>
-              <select
-                className='p-1 mt-2 rounded-md shadow-md shadow-black'
-                name='slices'
-                id='slices'
-                // onChange={(e) => setNumSlices(e.target.value)}
-              >
-                {pathOptions[1].length >= 1 && (
-                  <option value='1' selected={numSlices === '1'}>
-                    1 slice
-                  </option>
-                )}
+          <div className='flex flex-grow flex-col relative font-boogaloo'>
+            <div className='flex flex-col items-center text-lg bg-slate-200 border-black border-x-4 border-b-4 rounded-b-md font-boogaloo '>
+              <div className='flex flex-row'>
+                <button
+                  className='p-1 rounded-md bg-slate-400 shadow-black focus:ring-4 shadow-lg transform active:scale-y-75 transition-transform flex mt-2 mr-2'
+                  onClick={() => {
+                    setPathNumber(generateNewPath(slices.value));
+                  }}
+                >
+                  Give me another path!
+                </button>
+                <select
+                  className='p-1 mt-2 rounded-md shadow-lg shadow-black'
+                  name='slices'
+                  id='slices'
+                  // onChange={(e) => setNumSlices(e.target.value)}
+                >
+                  {pathOptions[1].length >= 1 && (
+                    <option value='1' selected={numSlices === '1'}>
+                      1 slice
+                    </option>
+                  )}
 
-                {pathOptions[2].length >= 1 && (
-                  <option value='2' selected={numSlices === '2'}>
-                    2 slices
-                  </option>
-                )}
+                  {pathOptions[2].length >= 1 && (
+                    <option value='2' selected={numSlices === '2'}>
+                      2 slices
+                    </option>
+                  )}
 
-                {pathOptions[3].length >= 1 && (
-                  <option value='3' selected={numSlices === '3'}>
-                    3 slices
-                  </option>
-                )}
+                  {pathOptions[3].length >= 1 && (
+                    <option value='3' selected={numSlices === '3'}>
+                      3 slices
+                    </option>
+                  )}
 
-                {pathOptions[4].length >= 1 && (
-                  <option value='4' selected={numSlices === '4'}>
-                    4 slices
-                  </option>
-                )}
-              </select>
-            </div>
-            <a target='_blank' rel='noreferrer' href={googleLink}>
-              <button className='p-1 rounded-md bg-slate-400 mt-4 shadow-md shadow-black'>
-                Open Route In Google Maps
-              </button>
-            </a>
-          </div>
-
-          <div className='flex flex-grow flex-col items-center justify-center relative font-boogaloo'>
-            <div className='absolute bottom-2'>
-              <button className='p-1 rounded-md bg-[#4f646f] shadow-lg shadow-black align-bottom'>
-                Start over
-              </button>
+                  {pathOptions[4].length >= 1 && (
+                    <option value='4' selected={numSlices === '4'}>
+                      4 slices
+                    </option>
+                  )}
+                </select>
+              </div>
+              <a target='_blank' rel='noreferrer' href={googleLink}>
+                <button className='mt-4 p-1 rounded-md bg-slate-400 shadow-black focus:ring-4 shadow-lg transform active:scale-y-75 transition-transform flex mb-4'>
+                  Open Route In Google Maps
+                </button>
+              </a>
+              <div className='flex flex-grow justify-center items-center cursor-pointer'>
+                {/* <button className='p-1 rounded-md bg-[#4f646f] shadow-lg shadow-black align-bottom '>
+                  Start over
+                </button> */}
+                <span
+                  className='underline'
+                  onClick={() => {
+                    window.location.reload();
+                  }}
+                >
+                  Start Over
+                </span>
+              </div>
             </div>
           </div>
         </>

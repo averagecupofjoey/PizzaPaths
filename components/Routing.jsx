@@ -114,7 +114,6 @@ export default function Routing(props) {
               //   e.preventDefault();
               //   alert('did this work?');
               // });
-              console.log(popup);
             });
         },
       }),
