@@ -225,7 +225,7 @@ const Search = () => {
             )}
 
             {pathType && !userCoords && (
-              <div className='flex flex-row items-center justify-around w-full text-lg thin:text-2xl sm:text-3xl md:text-4xl'>
+              <div className='flex flex-row items-center justify-around w-full text-lg thin:text-2xl sm:text-3xl md:text-4xl relative'>
                 <div className='flex flex-col items-center '>
                   {localStatus === 'found' && (
                     <BsFillCheckSquareFill className='min-w-[50px] min-h-[50px] text-green-700' />
