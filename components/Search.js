@@ -253,8 +253,8 @@ const Search = () => {
 
                 <div className='flex flex-col items-center'>
                   <input
-                    className='rounded-md p-2 min-h-[50px]'
-                    placeholder=' Address & area code'
+                    className='rounded-md p-2 min-h-[50px] '
+                    placeholder='Address & area code'
                     onChange={updateAddress}
                   />
                   <button
