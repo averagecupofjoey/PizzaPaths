@@ -2,9 +2,10 @@ import PizzaPath from './PizzaPath';
 import { findPaths } from '../utils/findPaths';
 import { distance, deg2rad } from '../utils/distance';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import UserMap from './UserMap';
+import ListItem from './ListItem';
 
 import { BiWalk } from 'react-icons/bi';
 import { AiFillCar } from 'react-icons/ai';
@@ -46,6 +47,16 @@ const Search = () => {
 
   // state for google link
   const [googleLink, setGoogleLink] = useState('');
+
+  // state for list
+  const [showList, setShowList] = useState(false);
+
+  // ref for list
+  const listRef = useRef(null);
+
+  // for keeping track of current view
+
+  let listHidden = true;
 
   //makes it so found GPS coords stay and only accessed once
   const toggleClass = () => {
@@ -264,7 +275,6 @@ const Search = () => {
                     From this location
                   </button>
                 </div>
-                {/* </div> */}
                 {locationType !== '' && (
                   <div className='flex justify-center mb-4 ease-in duration-1000 absolute right-1 bottom-1'>
                     {locationType === 'gps' && gpsCoords === '' && (
@@ -434,16 +444,37 @@ const Search = () => {
 
       {pathOptions && (
         <>
-          <div className='border-black border-[4px] rounded-t-md '>
+          <div className='border-black border-[4px] rounded-t-md relative'>
             <UserMap
               startCoords={userCoords}
               pizzaData={pathOptions}
               numSlices={slices.value}
               pathNum={pathNumber}
             />
+            {showList && (
+              <div className='w-full h-[50vh] absolute top-0 left-0 z-[1000] bg-slate-200 font-boogaloo flex flex-col items-center justify-center'>
+                <div className='h-[96%] w-[96%] items-center justify-center flex flex-col'>
+                  {pathOptions[slices.value][pathNumber].map((el, idx) => {
+                    return (
+                      <ListItem key={idx} pizzaData={el} stopNumber={idx} />
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+            {/* <div
+              ref={listRef}
+              className='w-full h-[50vh] absolute top-0 left-0 bg-slate-200 font-boogaloo flex flex-col items-center justify-center'
+            >
+              <div className='h-[96%] w-[96%] items-center justify-center flex flex-col'>
+                {pathOptions[slices.value][pathNumber].map((el, idx) => {
+                  return <ListItem key={idx} pizzaData={el} stopNumber={idx} />;
+                })}
+              </div>
+            </div> */}
           </div>
           <div className='flex flex-grow flex-col relative font-boogaloo'>
-            <div className='flex flex-col items-center text-lg bg-slate-200 border-black border-x-4 border-b-4 rounded-b-md font-boogaloo '>
+            <div className='flex flex-col items-center text-lg bg-slate-200 border-black border-x-4 border-b-4 rounded-b-md font-boogaloo relative'>
               <div className='flex flex-row'>
                 <button
                   className='p-1 rounded-md bg-slate-400 shadow-black focus:ring-4 shadow-lg transform active:scale-y-75 transition-transform flex mt-2 mr-2'
@@ -454,7 +485,7 @@ const Search = () => {
                   Give me another path!
                 </button>
                 <select
-                  className='p-1 mt-2 rounded-md shadow-lg shadow-black'
+                  className='p-1 mt-2 rounded-md shadow-lg shadow-black outline outline-2 -outline-offset-2 outline-black'
                   name='slices'
                   id='slices'
                   // onChange={(e) => setNumSlices(e.target.value)}
@@ -502,6 +533,26 @@ const Search = () => {
                   Start Over
                 </span>
               </div>
+              <span
+                className='absolute right-2 bottom-0 cursor-pointer'
+                onClick={() => setShowList(!showList)}
+                // onClick={() => {
+                //   console.log('BOOP');
+                //   const listNode = listRef.current;
+
+                //   if (listHidden === true) {
+                //     listNode.classList.add('z-[1000]');
+                //     listHidden = false;
+                //   }
+                //   if (listHidden === false) {
+                //     listNode.classList.remove('z-[1000');
+                //     listHidden = true;
+                //   }
+                // }}
+              >
+                {/* Show {listHidden === true ? 'List' : 'Map'} */}
+                Show {showList === false ? 'List' : 'Map'}
+              </span>
             </div>
           </div>
         </>

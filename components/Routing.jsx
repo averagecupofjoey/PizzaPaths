@@ -70,51 +70,44 @@ export default function Routing(props) {
             selectedData[i - 1].location.display_address[0]
           }</h2><h3>Yelp rating: ${selectedData[i - 1].rating}</h3>`;
 
-          const button = document.createElement('button');
-          button.innerHTML = 'Copy Address';
-          button.className =
-            'p-2 bg-red-200 rounded-md mt-2 shadow-md shadow-black';
+          // const button = document.createElement('button');
+          // button.innerHTML = 'Copy Address';
+          // button.className =
+          //   'p-2 bg-red-200 rounded-md mt-2 shadow-md shadow-black';
 
-          button.onclick = function (e) {
-            e.preventDefault();
-            this.className =
-              'p-2 bg-green-200 rounded-md mt-2 shadow-md shadow-black';
-            this.innerHTML = 'Copied';
-            navigator.clipboard.writeText(
-              selectedData[i - 1].location.display_address[0]
-            );
-          };
+          // button.onclick = function (e) {
+          //   e.preventDefault();
+          //   this.className =
+          //     'p-2 bg-green-200 rounded-md mt-2 shadow-md shadow-black';
+          //   this.innerHTML = 'Copied';
+          //   navigator.clipboard.writeText(
+          //     selectedData[i - 1].location.display_address[0]
+          //   );
+          // };
 
-          div.appendChild(button);
+          // div.appendChild(button);
           return L.marker(wp.latLng, {
             draggable: false,
             icon: appIcons[i],
-          })
-            .bindPopup(
-              div
-              // `<div class=pizzaPopup><h1>${
-              //   selectedData[i - 1].name
-              // }</h1> <img class="img-in-popup" src='${
-              //   selectedData[i - 1].image_url
-              // }'/> <h2>${
-              //   selectedData[i - 1].location.display_address[0]
-              // }</h2><h3>Yelp rating: ${
-              //   selectedData[i - 1].rating
-              // }</h3><button id="copyButton">Copy Address</button></div>`
+          }).bindPopup(
+            div
+            // `<div class=pizzaPopup><h1>${
+            //   selectedData[i - 1].name
+            // }</h1> <img class="img-in-popup" src='${
+            //   selectedData[i - 1].image_url
+            // }'/> <h2>${
+            //   selectedData[i - 1].location.display_address[0]
+            // }</h2><h3>Yelp rating: ${
+            //   selectedData[i - 1].rating
+            // }</h3><button id="copyButton">Copy Address</button></div>`
 
-              // <PizzaPopUp
-              //   locationName={selectedData[i - 1].name}
-              //   locationImage={selectedData[i - 1].image_url}
-              //   locationAddress={selectedData[i - 1].location.display_address[0]}
-              //   yelpRating={selectedData[i - 1].rating}
-              // />
-            )
-            .on('popupopen', (popup) => {
-              // button.on('click', (e) => {
-              //   e.preventDefault();
-              //   alert('did this work?');
-              // });
-            });
+            // <PizzaPopUp
+            //   locationName={selectedData[i - 1].name}
+            //   locationImage={selectedData[i - 1].image_url}
+            //   locationAddress={selectedData[i - 1].location.display_address[0]}
+            //   yelpRating={selectedData[i - 1].rating}
+            // />
+          );
         },
       }),
     }).addTo(map);
