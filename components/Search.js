@@ -44,6 +44,7 @@ const Search = () => {
   const [numSlices, setNumSlices] = useState('');
   const [pathDistance, setPathDistance] = useState('');
   const [searchSort, setSearchSort] = useState('');
+  const [pathsLoading, setPathsLoading] = useState(false);
 
   // state for google link
   const [googleLink, setGoogleLink] = useState('');
@@ -127,6 +128,9 @@ const Search = () => {
   const [latitude, longitude] = userCoords;
 
   const searchPaths = async () => {
+    // show loading spinner while making the API call
+    setPathsLoading(true);
+
     // making our Yelp fetch here with defined long & lat
     if (
       latitude !== undefined &&
@@ -175,7 +179,7 @@ const Search = () => {
           'Number of slices desired not possible. Here are some alternatives.'
         );
       }
-
+      setPathsLoading(false);
       setOptions(possiblePaths);
     } else {
       window.alert(
@@ -264,7 +268,7 @@ const Search = () => {
 
                 <div className='flex flex-col items-center'>
                   <input
-                    className='rounded-md p-2 min-h-[50px] '
+                    className='rounded-md p-2 min-h-[50px] pr-0 '
                     placeholder='Address & area code'
                     onChange={updateAddress}
                   />
@@ -409,14 +413,26 @@ const Search = () => {
                       </select>
                     </div>
                   )}
-                  {numSlices && pathDistance && searchSort && (
-                    <div className='flex items-center justify-center row-span-1'>
-                      <button
-                        className='p-1 rounded-md bg-slate-400 shadow-black focus:ring-4 shadow-lg transform active:scale-y-75 transition-transform flex'
-                        onClick={() => searchPaths()}
-                      >
-                        Find My Path
-                      </button>
+                  {numSlices &&
+                    pathDistance &&
+                    searchSort &&
+                    pathsLoading === false && (
+                      <div className='flex items-center justify-center row-span-1'>
+                        <button
+                          className='p-1 rounded-md bg-slate-400 shadow-black focus:ring-4 shadow-lg transform active:scale-y-75 transition-transform flex'
+                          onClick={() => searchPaths()}
+                        >
+                          Find My Path
+                        </button>
+                      </div>
+                    )}
+                  {pathsLoading && (
+                    <div className='flex flex-col items-center justify-center row-span-1'>
+                      <Image
+                        src={spinner}
+                        alt='Loading Image'
+                        className='min-w-[100px] min-h-[100px] rounded-md animate-spin'
+                      ></Image>
                     </div>
                   )}
                 </div>
@@ -438,6 +454,17 @@ const Search = () => {
                 </div>
               </div>
             )}
+            {/* {pathsLoading === true && (
+              <div className='flex flex-row items-center justify-around w-full text-2xl md:text-3xl lg:text-4xl'>
+                <div className='flex flex-col items-center justify-center'>
+                  <Image
+                    src={spinner}
+                    alt='Loading Image'
+                    className='min-w-[100px] min-h-[100px] rounded-md animate-spin'
+                  ></Image>
+                </div>
+              </div>
+            )} */}
           </div>
         </div>
       )}
