@@ -268,7 +268,7 @@ const Search = () => {
 
                 <div className='flex flex-col items-center'>
                   <input
-                    className='rounded-md p-2 min-h-[50px] pr-0 '
+                    className='rounded-md p-2 min-h-[50px] pr-4 '
                     placeholder='Address & area code'
                     onChange={updateAddress}
                   />
